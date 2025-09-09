@@ -9,7 +9,7 @@ const SynopsisSection = () => {
         <span className="letter-l">o</span>ple behind it.
       </h2>
       <div className="synopsis_info">
-        <p>
+        <p className="description">
           &nbsp;
           &nbsp;
           &nbsp;
@@ -23,13 +23,13 @@ const SynopsisSection = () => {
           door-to-door, trying to convince adults, but fall short of the votes
           needed.
         </p>
-        <p>
+        <p className="description">
           In a desperate move, the children stage an underwear march, grabbing
           media attention and public sympathy. Their bold act sparks
           conversation and support, but it still isn’t enough to overturn
           Bhide’s rule.
         </p>
-        <p>
+        <p className="description">
           Their final chance comes in a televised debate, where the kids’
           honesty and innocence win over the audience. Inspired, society
           secretary Mr. Tandon changes his stance, and Bhidu is finally accepted

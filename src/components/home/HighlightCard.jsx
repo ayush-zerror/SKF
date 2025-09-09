@@ -9,7 +9,7 @@ const HighlightCard = ({ data }) => {
         <div className="highlight_info_dets">
           <p>{data?.date}</p>
           <h4>{data?.title}</h4>
-          <span>{data?.category}</span>
+          <span className="category">{data?.category}</span>
         </div>
         <Button title="Read More" color={'white'} />
       </div>

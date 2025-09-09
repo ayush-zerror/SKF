@@ -226,7 +226,7 @@
   font-weight: 400;
   line-height: 1;
 }
-.highlight_info span {
+.highlight_info .category {
   font-family: Helvetica;
   font-weight: 500;
   font-size: 0.8rem;

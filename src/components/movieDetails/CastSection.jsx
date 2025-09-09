@@ -1,7 +1,6 @@
 import React from "react";
 import Button from "../common/Button";
-import DirectorCard from "../common/castContainer/DirectorCard";
-import DirectorsContainer from "../common/castContainer/DirectorsContainer";
+import DirectorsContainer from "../common/Directors/DirectorsContainer";
 
 const directors = [
   { id: 1, name: "Salman khan", image: "/images/moviedetails/cast1.png" },
