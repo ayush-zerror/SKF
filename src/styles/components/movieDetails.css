@@ -1,0 +1,112 @@
+#movie_details_hero {
+  width: 100%;
+  padding-top: 3.5rem;
+}
+#movie_details_hero .movie_title {
+  width: 100%;
+  padding: 0 3.5rem;
+}
+.movie_banner {
+  width: 100%;
+  height: auto;
+  margin-top: 1rem;
+}
+.movie_banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie_details_info {
+  width: 100%;
+  padding: 3.5rem;
+  padding-bottom: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.movie_details_info img {
+  width: 1.2rem;
+  height: auto;
+}
+
+.movie_details_info p {
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  font-family: Helvetica;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.movie_details_info h4 {
+  font-family: heading;
+  font-size: 2.8rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* synopsis section */
+
+#synopsis_section {
+  width: 100%;
+  padding: 3.5rem;
+}
+
+.synopsis_info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  font-family: Helvetica;
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 1;
+  margin-top: 4rem;
+  text-transform: capitalize;
+}
+
+/* cast section  */
+
+#cast_section {
+  width: 100%;
+  padding: 3.5rem;
+}
+#cast_section .common_btn{
+    margin-top: 2.5rem;
+}
+/* promos section */
+
+#promos_section {
+  width: 100%;
+  padding: 3.5rem;
+}
+
+.promos_container {
+  background-color: #d72403;
+  padding: 3.5rem;
+}
+.promos_container .tag {
+  color: #fff;
+}
+#trailer_container {
+  width: 100%;
+  margin-top: 4rem;
+}
+.trailer_card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  font-family: heading;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 1rem 0;
+  border-top: 1px solid #00000040;
+}
+.trailer_card:last-child {
+  border-bottom: 1px solid #00000040;
+}
+
+.trailer_card p {
+  width: 28%;
+}
