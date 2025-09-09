@@ -7,11 +7,11 @@
   border-bottom: 1px solid #d8d8d8;
 }
 #logo {
-  font-size: 1.5rem;
   text-decoration: none;
-  color: black;
-  font-weight: 900;
-  font-family: Helvetica;
+}
+#logo img{
+  width: 4rem;
+  height: auto;
 }
 .nav_links {
   display: flex;
