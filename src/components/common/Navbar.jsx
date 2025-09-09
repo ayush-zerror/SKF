@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
+import { navLinks } from "@/helper/menuData";
 
 const Navbar = () => {
   const navRef = useRef(null);
@@ -28,14 +29,6 @@ const Navbar = () => {
     animateLetters(`.${cls} .title1 span`);
     animateLetters(`.${cls} .title2 span`);
   };
-
-  // 🔹 Dynamic links
-  const navLinks = [
-    { href: "/movies", label: "movies" },
-    { href: "/about", label: "about" },
-    { href: "/highlights", label: "highlights" },
-    { href: "/contact", label: "contact" },
-  ];
 
   return (
     <nav id="navbar" ref={navRef}>
