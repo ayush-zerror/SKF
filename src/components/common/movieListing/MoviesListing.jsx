@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import MovieCard from "./MovieCard";
 import Button from "../Button";
 
 const MoviesListing = ({ isHero, data }) => {
+  const [filter, setFilter] = useState("released");
+  const filters = ["all", "released", "upcoming movies"];
+
   return (
     <section id="movie_listing">
       <h5 className="tag">Movies</h5>
@@ -13,9 +16,14 @@ const MoviesListing = ({ isHero, data }) => {
 
       {/* Filter Section */}
       <div className="filter_movie">
-        <span>All</span>
-        <span className="active">Released</span>
-        <span>Upcoming Movies</span>
+        {filters.map((f, idx) => (
+          <span
+            onClick={() => setFilter(f)}
+            className={`${f === filter ? "active" : ""} `}
+          >
+            {f}
+          </span>
+        ))}
       </div>
 
       {/* Movie Container */}
