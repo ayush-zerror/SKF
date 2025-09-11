@@ -245,10 +245,10 @@ body {
 }
 
 .gallery_container .play-btn {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   width: 4rem;
   height: 4rem;
-  color: white;
+  color: white !important;
   bottom: 2rem;
   right: 2rem;
   position: absolute;
@@ -258,6 +258,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+.gallery_container .play-btn svg{
+  transition: all ease 0.4s;
+}
+.gallery_container .play-btn:hover svg{
+  transform: scale(1.2);
 }
 
 .gallery_container .overlay-text {
@@ -278,7 +287,15 @@ body {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.384);
   opacity: 0;
-  transition: all ease-in-out 0.5s;
+  transition: all ease 0.6s;
+}
+.gallery_container .overlay-text p{
+  transform: translateY(1rem);
+  transition: all ease 0.6s;
+  cursor: default;
+}
+.gallery_container .item:hover .overlay-text p{
+  transform: translateY(0);
 }
 .gallery_container .item:hover .overlay-text {
   opacity: 1;

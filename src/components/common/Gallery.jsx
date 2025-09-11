@@ -1,58 +1,36 @@
 import Image from "next/image";
-import React from "react";
+import React, { useRef, useState } from "react";
+import { FaPlay, FaPause } from "react-icons/fa";
 
 const galleryData = [
-  {
-    id: 1,
-    type: "video", // video or image
-    src: "/images/home/hero.mp4",
-    overlayText: null,
-  },
-  {
-    id: 2,
-    type: "image",
-    src: "/images/gallery/g2.png",
-    overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS",
-  },
-  {
-    id: 3,
-    type: "video",
-    src: "/images/home/hero.mp4",
-    overlayText: null,
-  },
-  {
-    id: 4,
-    type: "image",
-    src: "/images/gallery/g4.png",
-    overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS",
-  },
-  {
-    id: 5,
-    type: "image",
-    src: "/images/gallery/g5.png",
-    overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS",
-  },
-  {
-    id: 6,
-    type: "image",
-    src: "/images/gallery/g6.png",
-    overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS",
-  },
-  {
-    id: 7,
-    type: "image",
-    src: "/images/gallery/g7.png",
-    overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS",
-  },
-  {
-    id: 8,
-    type: "image",
-    src: "/images/gallery/g8.png",
-    overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS",
-  },
+  { id: 1, type: "video", src: "/images/home/hero.mp4", overlayText: null },
+  { id: 2, type: "image", src: "/images/gallery/g2.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
+  { id: 3, type: "video", src: "/images/home/hero.mp4", overlayText: null },
+  { id: 4, type: "image", src: "/images/gallery/g4.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
+  { id: 5, type: "image", src: "/images/gallery/g5.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
+  { id: 6, type: "image", src: "/images/gallery/g6.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
+  { id: 7, type: "image", src: "/images/gallery/g7.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
+  { id: 8, type: "image", src: "/images/gallery/g8.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
 ];
 
 const Gallery = () => {
+  const videoRefs = useRef({});
+  const [playing, setPlaying] = useState({});
+
+  const handleTogglePlay = (id) => {
+    const video = videoRefs.current[id];
+    if (!video) return;
+
+    if (video.paused) {
+      video.muted = false; // enable audio when playing
+      video.play();
+      setPlaying((prev) => ({ ...prev, [id]: true }));
+    } else {
+      video.pause();
+      setPlaying((prev) => ({ ...prev, [id]: false }));
+    }
+  };
+
   return (
     <div id="gallery">
       <div className="tag">gallery</div>
@@ -60,7 +38,12 @@ const Gallery = () => {
         {galleryData.map((item) => (
           <div key={item.id} className={`item item${item.id}`}>
             {item.type === "video" ? (
-              <video autoPlay muted playsInline loop src={item.src}></video>
+              <video
+                ref={(el) => (videoRefs.current[item.id] = el)}
+                playsInline
+                loop
+                src={item.src}
+              />
             ) : (
               <Image
                 src={item.src}
@@ -70,9 +53,17 @@ const Gallery = () => {
               />
             )}
 
-            {item.type === "video" && <span className="play-btn">▶</span>}
+            {item.type === "video" && (
+              <button
+                className="play-btn"
+                onClick={() => handleTogglePlay(item.id)}
+              >
+                {playing[item.id] ? <FaPause /> : <FaPlay />}
+              </button>
+            )}
+
             {item.overlayText && (
-              <div className="overlay-text">{item.overlayText}</div>
+              <div className="overlay-text"><p>{item.overlayText}</p></div>
             )}
           </div>
         ))}
