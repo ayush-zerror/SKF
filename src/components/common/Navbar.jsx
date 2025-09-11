@@ -4,9 +4,11 @@ import React, { useRef } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { navLinks } from "@/helper/menuData";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const navRef = useRef(null);
+  const pathname = usePathname();
 
   const splitLetters = (text) =>
     text.split("").map((letter, i) => <span key={i}>{letter}</span>);
@@ -31,9 +33,18 @@ const Navbar = () => {
   };
 
   return (
-    <nav id="navbar" ref={navRef}>
+    <nav
+      style={pathname === "/" ? { transform: "translateY(-100%)" } : {}}
+      id="navbar"
+      ref={navRef}
+    >
       <Link id="logo" href="/">
-        <Image width={1000} height={1000} src='/images/skf_logo.png' alt="skf_logo" />
+        <Image
+          width={1000}
+          height={1000}
+          src="/images/skf_logo.png"
+          alt="skf_logo"
+        />
       </Link>
 
       <div className="nav_links">

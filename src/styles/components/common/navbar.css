@@ -8,7 +8,7 @@
   padding: .8rem 3.5rem;
   border-bottom: 1px solid #d8d8d8;
   background-color: #fff;
-  z-index: 9;
+  z-index: 99;
 }
 #logo {
   text-decoration: none;

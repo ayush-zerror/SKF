@@ -1,9 +1,8 @@
 import React from "react";
+import Loader from "../loader/Loader";
 
 const HeroSection = () => {
-  return <section id="hero_section">
-    <video autoPlay muted playsInline loop src="/images/home/hero.mp4"></video>
-  </section>;
+  return <Loader />;
 };
 
 export default HeroSection;

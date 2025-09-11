@@ -179,8 +179,7 @@ body {
   width: 53%;
 }
 
-
-#view_btn{
+#view_btn {
   position: fixed;
   top: 50%;
   left: 50%;
@@ -194,12 +193,12 @@ body {
   font-weight: 400;
   text-transform: uppercase;
   color: #fff;
-  background-color: #E32300;
+  background-color: #e32300;
   margin-top: 2.5rem;
   white-space: nowrap;
   border-radius: 50%;
   pointer-events: none;
-  transform: translate(0%,-50%) ;
+  transform: translate(0%, -50%);
   z-index: 9;
   opacity: 0;
 }
@@ -289,10 +288,10 @@ body {
   border: none;
   outline: none;
 }
-.gallery_container .play-btn svg{
+.gallery_container .play-btn svg {
   transition: all ease 0.4s;
 }
-.gallery_container .play-btn:hover svg{
+.gallery_container .play-btn:hover svg {
   transform: scale(1.2);
 }
 
@@ -314,10 +313,9 @@ body {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.384);
 }
-.gallery_container .overlay-text p{
+.gallery_container .overlay-text p {
   cursor: default;
 }
-
 
 /* gallery section end */
 
@@ -362,12 +360,9 @@ body {
 
 #main_loader {
   width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+  height: 100vh;
   background-color: #c02408;
-  z-index: 999;
+  z-index: 9;
   color: #fff;
   display: flex;
   align-items: center;
@@ -381,13 +376,31 @@ body {
   font-weight: 400;
   line-height: 1;
   display: flex;
+  align-items: center;
+  height: 7rem;
   transform-origin: center;
-  /* -webkit-background-clip: text; */
-  /* background-clip: text; */
-  /* background-image: url('/images/home/movie1.png'); */
 }
 #main_loader h2 span {
   line-height: 1;
+  height: 7rem;
+}
+
+#landing_video {
+  position: absolute;
+  top: 50.3%;
+  left: 50.35%;
+  transform: translate(-50%, -50%);
+  display: block;
+  background-color: white;
+  height: 5.6rem;
+  width: auto;
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+#landing_video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
 }
 .letter_inner {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
