@@ -4,13 +4,13 @@ import { FaPlay, FaPause } from "react-icons/fa";
 
 const galleryData = [
   { id: 1, type: "video", src: "/images/home/hero.mp4", overlayText: null },
-  { id: 2, type: "image", src: "/images/gallery/g2.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
+  { id: 2, type: "image", src: "/images/gallery/g2.png", overlayText: null },
   { id: 3, type: "video", src: "/images/home/hero.mp4", overlayText: null },
-  { id: 4, type: "image", src: "/images/gallery/g4.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
-  { id: 5, type: "image", src: "/images/gallery/g5.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
-  { id: 6, type: "image", src: "/images/gallery/g6.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
+  { id: 4, type: "image", src: "/images/gallery/g4.png", overlayText: null },
+  { id: 5, type: "image", src: "/images/gallery/g5.png", overlayText: null },
+  { id: 6, type: "image", src: "/images/gallery/g6.png", overlayText: null },
   { id: 7, type: "image", src: "/images/gallery/g7.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
-  { id: 8, type: "image", src: "/images/gallery/g8.png", overlayText: "RAW, REAL, & BTS FROM SALMAN KHAN FILMS" },
+  { id: 8, type: "image", src: "/images/gallery/g8.png", overlayText: null },
 ];
 
 const Gallery = () => {
