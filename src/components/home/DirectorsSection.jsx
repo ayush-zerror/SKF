@@ -12,7 +12,7 @@ const directors = [
 const DirectorsSection = () => {
   return (
     <section id="directors_section">
-      <h5 className="tag">Movies</h5>
+      <h5 className="tag">Directors</h5>
       <h3 className="heading">
         Visionaries Be<span className="letter-u">h</span>ind the <br /> Ca
         <span className="letter-u">m</span>era
