@@ -59,6 +59,7 @@ body {
 #movie_listing {
   width: 100%;
   padding: 3.5rem;
+  position: relative;
 }
 #movie_listing.hero {
   padding-top: 7rem;
@@ -121,6 +122,7 @@ body {
   color: #000;
   transition: all ease 0.6s;
   transform-origin: top left;
+  cursor: none;
 }
 .movie_card:hover {
   width: 38%;
@@ -170,12 +172,37 @@ body {
 
 .movie_container_row .movie_card {
   width: calc(100% / 2);
+  cursor: pointer;
 }
 
 .movie_container_row .movie_card:hover {
   width: 53%;
 }
 
+
+#view_btn{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: heading;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #E32300;
+  margin-top: 2.5rem;
+  white-space: nowrap;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(0%,-50%) ;
+  z-index: 9;
+  opacity: 0;
+}
 
 /* movie listing  end */
 
@@ -345,6 +372,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: default;
 }
 
 #main_loader h2 {
