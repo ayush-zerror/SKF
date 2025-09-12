@@ -76,7 +76,7 @@ const PromosSection = () => {
               onMouseLeave={() => handleMouseLeave(index)}
             >
               <p className="trailer_date">{promo.date}</p>
-              <p className="trailer_title">{promo.title}</p>
+              <p className="trailer_title description">{promo.title}</p>
 
               {/* Floating image */}
               <Image
