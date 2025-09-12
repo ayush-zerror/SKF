@@ -39,12 +39,14 @@
   height: 5.66rem;
   width: auto;
   clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  overflow: hidden;
 }
 #landing_video video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+  background-color: black;
 }
 .letter_inner {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
