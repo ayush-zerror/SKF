@@ -1,9 +1,21 @@
-import React from 'react'
+import React from "react";
 
 const About = () => {
   return (
-    <div>About</div>
-  )
-}
+    <div
+      className="heading"
+      style={{
+        width: "100%",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "2rem",
+      }}
+    >
+      🚧 We’re working on this page — coming your way soon!
+    </div>
+  );
+};
 
-export default About
+export default About;
