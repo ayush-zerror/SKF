@@ -6,27 +6,30 @@ import Highlights from '@/components/home/Highlights'
 import UpcomingSection from '@/components/home/UpcomingSection'
 import React from 'react'
 import MoviesListing from '@/components/common/movieListing/MoviesListing'
-const movies = [
-  { image: "/images/home/movie1.png", title: "[1] Sikandar", year: "2025" },
-  { image: "/images/home/movie2.png", title: "[2] Farrey", year: "2024" },
-  {
-    image: "/images/home/movie3.png",
-    title: "[3] Kisi Ka Bhai Kisi Ki Jaan",
-    year: "2023",
-  },
-];
-const Home = () => {
+import { movies } from '@/helper/moviesData'
+
+const Home = ({ movies }) => {
   return (
     <>
       <HeroSection />
       <UpcomingSection />
       <MoviesListing data={movies} />
-      <DirectorsSection/>
+      <DirectorsSection />
       <Gallery />
-      <Highlights/>
-      <AboutSection/>
+      <Highlights />
+      <AboutSection />
     </>
   )
 }
 
-export default Home
+export default Home;
+
+export async function getStaticProps() {
+  // Take only the last 3 movies
+  const latestMovies = movies.slice(-3);
+  return {
+    props: {
+      movies: latestMovies
+    }
+  };
+}

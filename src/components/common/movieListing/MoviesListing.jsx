@@ -33,7 +33,7 @@ const MoviesListing = ({ isHero, data }) => {
       {/* Movie Container */}
         <div id="movie_container" className={isHero ? "hero" : ""}>
           {data.map((movie, index) => (
-            <MovieCard key={index} data={movie} />
+            <MovieCard key={index} id={index + 1} data={movie} />
           ))}
         </div>
       {isHero && (
