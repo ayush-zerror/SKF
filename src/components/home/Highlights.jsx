@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import HighlightCard from "./HighlightCard";
+import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 // highlightData.js
 export const highlightData = [
   {
@@ -26,10 +27,13 @@ export const highlightData = [
 ];
 
 const Highlights = () => {
+  const titleRef = useRef(null);
+    useSplitTextMaskAnimation([titleRef])
+  
   return (
     <section id="highlight_section">
       <h5 className="tag">highlight</h5>
-      <h2>News and Updates</h2>
+      <h2 ref={titleRef}>News and Updates</h2>
       <div id="highlights_container">
         {highlightData.map((item) => (
           <HighlightCard key={item.id} data={item} />

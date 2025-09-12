@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import MovieCard from "./MovieCard";
 import Button from "../Button";
+import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 
 const MoviesListing = ({ isHero, data }) => {
   const filters = ["all", "released", "upcoming movies"];
   const [filter, setFilter] = useState("released");
+  const titleRef = useRef(null);
+  useSplitTextMaskAnimation([titleRef])
 
   return (
     <section id="movie_listing" className={`${isHero ? "hero" : ""}`}>
       <div className="movie_listing_header">
         <h5 className="tag">Movies</h5>
-        <h3 className="heading">
+        <h3 ref={titleRef} className="heading">
           Explore our top fil<span className="letter-u">m</span>s loved by{" "}
           <br /> audien<span className="letter-u">c</span>es worldwi
           <span>d</span>e.

@@ -1,15 +1,22 @@
-import React from "react";
+import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
+import React, { useRef } from "react";
 
 const SynopsisSection = () => {
+  const titleRef = useRef(null);
+  const paraRef1 = useRef(null);
+  const paraRef2 = useRef(null);
+  const paraRef3 = useRef(null);
+  
+    useSplitTextMaskAnimation([titleRef,paraRef1,paraRef2,paraRef3]);
   return (
     <section id="synopsis_section">
       <h5 className="tag">Synopsis</h5>
-      <h2 className="heading">
+      <h2 ref={titleRef} className="heading">
         Discover the s<span className="letter-u">t</span>ory, <br /> the pe
         <span className="letter-l">o</span>ple behind it.
       </h2>
       <div className="synopsis_info">
-        <p className="description">
+        <p ref={paraRef1} className="description">
           &nbsp;
           &nbsp;
           &nbsp;
@@ -23,13 +30,13 @@ const SynopsisSection = () => {
           door-to-door, trying to convince adults, but fall short of the votes
           needed.
         </p>
-        <p className="description">
+        <p ref={paraRef2} className="description">
           In a desperate move, the children stage an underwear march, grabbing
           media attention and public sympathy. Their bold act sparks
           conversation and support, but it still isn’t enough to overturn
           Bhide’s rule.
         </p>
-        <p className="description">
+        <p ref={paraRef3} className="description">
           Their final chance comes in a televised debate, where the kids’
           honesty and innocence win over the audience. Inspired, society
           secretary Mr. Tandon changes his stance, and Bhidu is finally accepted

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import DirectorsContainer from "../common/Directors/DirectorsContainer";
+import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 
 const directors = [
   { id: 1, name: "Kabir khan", image: "/images/home/d1.png" },
@@ -10,14 +11,20 @@ const directors = [
   { id: 3, name: "Mahesh Manjrekar", image: "/images/home/d6.png" },
 ];
 const DirectorsSection = () => {
+
+  const titleRef = useRef(null);
+  const paraRef = useRef(null);
+
+  useSplitTextMaskAnimation([titleRef,paraRef])
+
   return (
     <section id="directors_section">
       <h5 className="tag">Directors</h5>
-      <h3 className="heading">
+      <h3 ref={titleRef} className="heading">
         Visionaries Be<span className="letter-u">h</span>ind the <br /> Ca
         <span className="letter-u">m</span>era
       </h3>
-      <p className="description">
+      <p ref={paraRef} className="description">
         SKF collaborates with some of <br /> the most creative directors in{" "}
         <br /> Indian cinema.
       </p>
