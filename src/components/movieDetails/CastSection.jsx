@@ -15,7 +15,7 @@ const CastSection = () => {
     <section id="cast_section">
       <h5 className="tag">Cast and crew</h5>
       <DirectorsContainer data={directors}/>
-      <Button title={"show more"} color={"red"} />
+      <Button title={"show more"} color={"black"} />
     </section>
   );
 };

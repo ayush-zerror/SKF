@@ -26,8 +26,8 @@
   display: inline-block;
   line-height: 1;
 }
-.common_btn.red {
-  background-color: #e32300;
+.common_btn.black {
+  background-color: #1D1D1D;
   color: #fff;
 }
 .common_btn.white {

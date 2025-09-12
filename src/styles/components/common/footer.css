@@ -28,7 +28,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid rgba(211, 211, 211, 0.158);
+  border-top: 1px solid #ffffff50;
   padding-top:2rem;
 }
 

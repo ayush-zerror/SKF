@@ -83,7 +83,7 @@ const MoviesListing = ({ isHero, data }) => {
         <h5 className="tag">Movies</h5>
         <h3 className="heading">
           Explore our top fil<span className="letter-u">m</span>s loved by{" "}
-          <br /> audien<span className="letter-l">c</span>es worldwi
+          <br /> audien<span className="letter-u">c</span>es worldwi
           <span>d</span>e.
         </h3>
 
@@ -130,7 +130,7 @@ const MoviesListing = ({ isHero, data }) => {
 
       {isHero && (
         <div className="movie_listing_btn">
-          <Button color={"red"} title={"show more"} />
+          <Button color={"black"} title={"show more"} />
         </div>
       )}
 

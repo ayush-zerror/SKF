@@ -6,7 +6,7 @@ const AboutSection = () => {
       <div className="about_overlay">
         <h5 className="tag">About</h5>
         <h2 className="heading">
-          Bringing Stories to Life, One <br /> Blockbuster at a Time
+          Bringing Sto<span className="letter-u">r</span>ies to Life, One <br /> Block<span className="letter-u">b</span>uster at a Time
         </h2>
         <p className="description">
           &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp;
