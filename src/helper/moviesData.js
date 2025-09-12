@@ -117,7 +117,7 @@ export const movies = [
         cast: ["Alizeh", "Ronit Roy", "Sahil Mehta", "Zeyn Shaw", "Prasanna Bisht"],
         director: "Soumendra Padhi",
         poster: "/images/movie/movie1.png",
-        trailer: "/images/home/hero.mp4"
+        trailer: "/images/home/farrey.mp4"
     },
     {
         year: 2025,
