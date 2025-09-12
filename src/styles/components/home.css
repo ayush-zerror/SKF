@@ -1,17 +1,61 @@
+/* hero section  */
+
 #hero_section {
   width: 100%;
   height: 100vh;
+  background-color: #1d1d1d;
+  z-index: 9;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  cursor: default;
 }
 
-#hero_section video {
-  width: 100%;
-  height: 150%;
-  object-fit: cover;
+#hero_section h2 {
+  font-family: BebasNeue;
+  font-size: 8rem;
+  font-weight: 400;
+  height: 7.16rem;
+  transform-origin: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
 }
+#hero_section h2 span {
+  height: fit-content;
+  display: inline-block;
+  height: 7.16rem;
+  line-height: 1;
+}
+
+#landing_video {
+  position: absolute;
+  top: 50%;
+  left: 50.3%;
+  transform: translate(-50%, -50%);
+  display: block;
+  background-color: white;
+  height: 5.66rem;
+  width: auto;
+  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+}
+#landing_video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}
+.letter_inner {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  width: fit-content;
+  display: inline-block;
+}
+.letter_space {
+  padding-right: 1rem;
+}
+
+/* hero section start  */
 
 /* upcoming section */
 
@@ -75,7 +119,7 @@
 #highlight_section {
   width: 100%;
   position: relative;
-  background-color: #1D1D1D;
+  background-color: #1d1d1d;
   padding: 3.5rem;
 }
 
@@ -124,7 +168,7 @@
   font-size: 1rem;
   margin-bottom: 1rem;
   text-transform: uppercase;
-  color: #FCFCFC !important;
+  color: #fcfcfc !important;
 }
 .highlight_info h4 {
   font-family: BebasNeue;
@@ -172,9 +216,8 @@
 .about_overlay {
   width: 100%;
   height: 100%;
-  background-color: #1D1D1DCF;
+  background-color: #1d1d1dcf;
   padding: 8rem 28rem;
-
 }
 
 .about_overlay .tag {
@@ -183,7 +226,7 @@
 .about_overlay .heading {
   color: #fff;
 }
-.about_overlay .heading span{
+.about_overlay .heading span {
   color: #fff;
 }
 .about_overlay .description {

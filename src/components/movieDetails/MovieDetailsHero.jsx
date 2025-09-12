@@ -4,10 +4,6 @@ import React from "react";
 const MovieDetailsHero = () => {
   return (
     <div id="movie_details_hero">
-      <div className="movie_title">
-        <h5 className="tag">2025</h5>
-        <h2 className="heading">sikandar</h2>
-      </div>
       <div className="movie_banner">
         <Image
           width={1000}
@@ -15,6 +11,9 @@ const MovieDetailsHero = () => {
           src="/images/moviedetails/movie_banner.png"
           alt="image"
         />
+        <div className="movie_banner_overlay">
+          <h2 className="heading">sikandar</h2>
+        </div>
       </div>
       <div className="movie_details_info">
         <div>
