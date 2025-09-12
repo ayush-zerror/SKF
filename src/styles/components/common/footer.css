@@ -15,13 +15,12 @@ footer {
   align-items: center;
   justify-content: space-between;
 }
-#footer_top h2{
-  font-family: heading;
+#footer_top h2 {
+  font-family: BebasNeue;
   font-size: 4rem;
   font-weight: 400;
   line-height: 1;
 }
-
 
 #footer_bottom {
   width: 100%;
@@ -29,7 +28,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid #ffffff50;
-  padding-top:2rem;
+  padding-top: 2rem;
 }
 
 #footer_bottom_left {
@@ -41,9 +40,9 @@ footer {
 #footer_bottom_left a {
   text-decoration: none;
   color: white;
-  font-family: Helvetica;
+  font-family: Helvetic;
   font-weight: 400;
-font-size: .8rem;
+  font-size: 0.8rem;
 }
 #footer_bottom_right {
   display: flex;
@@ -54,7 +53,7 @@ font-size: .8rem;
 #footer_bottom_right a {
   text-decoration: none;
   color: white;
-  font-family: Helvetica;
+  font-family: Helvetic;
   font-weight: 400;
-font-size: .8rem;
+  font-size: 0.8rem;
 }

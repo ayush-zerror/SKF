@@ -1,10 +1,18 @@
 @font-face {
-  font-family: heading;
+  font-family: BebasNeue;
   src: url(/fonts/BebasNeue-Regular.woff2);
 }
 @font-face {
-  font-family: letter;
-  src: url(/fonts/Norican-Regular.ttf);
+  font-family: Helvetic;
+  src: url(/fonts/Helvetica.ttf);
+}
+@font-face {
+  font-family: Urbanist;
+  src: url(/fonts/Urbanist[wght].ttf);
+}
+@font-face {
+  font-family: playfair;
+  src: url(/fonts/playfair-display.regular.ttf);
 }
 
 * {
@@ -21,32 +29,33 @@ body {
   display: none;
 }
 .tag {
-  font-family: heading;
-  color: #A5A08C;
+  font-family: BebasNeue;
+  color: #a5a08c;
   font-size: 1.5rem;
   font-weight: 400;
   margin-bottom: 1rem;
 }
 
 .heading {
-  font-family: heading;
+  font-family: BebasNeue;
   color: #000000;
   font-size: 3.8rem;
   font-weight: 400;
   line-height: 1;
 }
 .description {
-  font-family: Helvetica;
+  font-family: Helvetic;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-top: 1.2rem;
+  color: #585858;
 }
 
 .letter-u {
-  font-family: letter;
+  font-family: playfair;
   text-transform: uppercase;
   font-weight: 400;
-  color: #A5A08C;
+  color: #a5a08c;
 }
 
 /* movie listing  */
@@ -65,9 +74,9 @@ body {
   align-items: center;
   gap: 2rem;
   text-transform: uppercase;
-  font-family: Helvetica;
+  font-family: Helvetic;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: .95rem;
   margin: 2.2rem 0 1rem;
   color: #000;
 }
@@ -90,10 +99,10 @@ body {
   transform: scaleX(0);
 }
 .filter_movie span.active {
-  color: #A5A08C;
+  color: #a5a08c;
 }
 .filter_movie span.active::before {
-  background-color: #A5A08C;
+  background-color: #a5a08c;
   transform: scaleX(1);
 }
 .filter_movie span:hover::before {
@@ -138,7 +147,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: Helvetica;
+  font-family: Helvetic;
   font-weight: 700;
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -183,7 +192,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: heading;
+  font-family: BebasNeue;
   font-size: 1rem;
   font-weight: 400;
   text-transform: uppercase;
@@ -273,7 +282,7 @@ body {
   bottom: 2rem;
   right: 2rem;
   position: absolute;
-  background: #1D1D1D;
+  background: #1d1d1d;
   padding: 6px;
   border-radius: 50%;
   display: flex;
@@ -300,7 +309,7 @@ body {
   width: 100%;
   height: 100%;
   padding: 3.5rem;
-  font-family: heading;
+  font-family: BebasNeue;
   font-size: 3.5rem;
   font-weight: 400;
   display: flex;
@@ -327,7 +336,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-family: heading;
+  font-family: BebasNeue;
   color: #000;
   font-size: 1.5rem;
   font-weight: 400;
@@ -356,7 +365,7 @@ body {
 #main_loader {
   width: 100%;
   height: 100vh;
-  background-color: #1D1D1D;
+  background-color: #1d1d1d;
   z-index: 9;
   color: #fff;
   display: flex;
@@ -366,7 +375,7 @@ body {
 }
 
 #main_loader h2 {
-  font-family: heading;
+  font-family: BebasNeue;
   font-size: 8rem;
   font-weight: 400;
   height: 7.16rem;
