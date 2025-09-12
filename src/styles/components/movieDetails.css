@@ -87,18 +87,15 @@
 
 #promos_section {
   width: 100%;
-  padding: 3.5rem;
+  padding:5rem 3.5rem;
+  background-color: #A5A08C;
 }
 
-.promos_container {
-  background-color: #1D1D1D;
-  padding: 3.5rem;
-}
 .promos_container .tag{
   color: #FCFCFC;
 }
 .promos_container .heading {
-  color: #F5F5DC;
+  color: #1D1D1D;
 }
 #trailer_container {
   width: 100%;
@@ -114,7 +111,7 @@
   font-size: 1.5rem;
   font-weight: 400;
   padding: 1rem 0;
-  border-top: 1px solid #ffffff50;
+  border-top: 1px solid #00000024;
   position: relative;
   cursor: default;
 }
@@ -129,11 +126,11 @@
   z-index: 9;
 }
 .trailer_card:last-child {
-  border-bottom: 1px solid #ffffff50;
+  border-bottom: 1px solid #00000024;
 }
 
 .trailer_card p {
-  width: 28%;
+  width: 25%;
   margin: 0;
   color: #FCFCFC;
 }
