@@ -26,7 +26,7 @@ export default Home;
 
 export async function getStaticProps() {
   // Take only the last 3 movies
-  const latestMovies = movies.slice(-3).reverse();
+  const latestMovies = movies.slice(0,3);
   return {
     props: {
       movies: latestMovies

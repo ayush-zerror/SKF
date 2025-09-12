@@ -112,7 +112,7 @@ const HeroSection = () => {
           muted
           loop
           playsInline
-          src="/images/home/farrey.mp4"
+          src="/images/home/hero.mp4"
         ></video>
       </div>
     </div>
