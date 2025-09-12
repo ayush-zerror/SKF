@@ -56,16 +56,9 @@ const Navbar = () => {
   const navStyle = isDarkRoute
     ? {
         transform: pathname === "/" ? "translateY(-100%)" : "",
-        background: scrolled ? "white" : "transparent",
-        borderBottom: "1px solid",
-        borderColor: scrolled ? "#d8d8d8" : "transparent",
-        transition: "background 0.3s ease, border-color 0.3s ease",
       }
     : {
         transform: "none",
-        background: "white",
-        borderBottom: "1px solid #d8d8d8",
-        transition: "none",
       };
 
   return (
@@ -76,10 +69,6 @@ const Navbar = () => {
           height={1000}
           src="/images/skf_logo.png"
           alt="skf_logo"
-          style={{
-            filter: isDarkRoute && !scrolled ? "invert(1)" : "invert(0)",
-            transition: "filter 0.6s ease",
-          }}
         />
       </Link>
 
@@ -90,10 +79,6 @@ const Navbar = () => {
             href={href}
             className={`nav_item ${label}`}
             onMouseEnter={() => handleHover(label)}
-            style={{
-              color: isDarkRoute && !scrolled ? "#fff" : "#1D1D1D",
-              transition: isDarkRoute ? "color 0.6s ease" : "none",
-            }}
           >
             <span className="title1">{splitLetters(label)}</span>
             <span className="title2">{splitLetters(label)}</span>
