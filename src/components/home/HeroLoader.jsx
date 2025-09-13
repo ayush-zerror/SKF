@@ -99,9 +99,8 @@ const HeroLoader = () => {
 useEffect(() => {
   const playBtn = playBtnRef.current;
   const videoEl = landingVideoRef.current?.querySelector("video");
-  const navbar = document.querySelector("nav"); // your nav element
 
-  if (!playBtn || !videoEl || !navbar) return;
+  if (!playBtn || !videoEl) return;
 
   playBtn.style.position = "fixed";
   playBtn.style.pointerEvents = "none";
@@ -119,26 +118,27 @@ useEffect(() => {
     videoEl.muted = !videoEl.muted;
     playBtn.textContent = videoEl.muted ? "Unmute" : "Mute";
   };
-  landingVideoRef.current.addEventListener("click", toggleMute);
+  videoEl.addEventListener("click", toggleMute);
 
-  // Hide/show playBtn when hovering navbar
-  const handleNavEnter = () => {
-    playBtn.style.opacity = "0";
+  // Hide/show playBtn when hovering over video
+  const handleVideoEnter = () => {
+    playBtn.style.opacity = "1"; // hide inside video
   };
-  const handleNavLeave = () => {
-    playBtn.style.opacity = "1";
+  const handleVideoLeave = () => {
+    playBtn.style.opacity = "0"; // show outside video
   };
-  navbar.addEventListener("mouseenter", handleNavEnter);
-  navbar.addEventListener("mouseleave", handleNavLeave);
+  videoEl.addEventListener("mouseenter", handleVideoEnter);
+  videoEl.addEventListener("mouseleave", handleVideoLeave);
 
   // Cleanup
   return () => {
     window.removeEventListener("mousemove", moveBtn);
-    landingVideoRef.current.removeEventListener("click", toggleMute);
-    navbar.removeEventListener("mouseenter", handleNavEnter);
-    navbar.removeEventListener("mouseleave", handleNavLeave);
+    videoEl.removeEventListener("click", toggleMute);
+    videoEl.removeEventListener("mouseenter", handleVideoEnter);
+    videoEl.removeEventListener("mouseleave", handleVideoLeave);
   };
 }, []);
+
 
 
 

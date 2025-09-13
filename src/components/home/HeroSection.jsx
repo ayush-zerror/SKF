@@ -1,13 +1,12 @@
-"use client";
 import React, { useRef, useEffect } from "react";
 import HeroLoader from "./HeroLoader";
 import MovieCard from "../movieListing/MovieCard";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Flip } from "gsap/dist/Flip";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
+import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger, Flip);
+gsap.registerPlugin(ScrollTrigger);
 
 const HeroSection = ({ movies }) => {
   const heroRef = useRef(null);
@@ -38,7 +37,7 @@ const HeroSection = ({ movies }) => {
       );
     });
   }, []);
-  useEffect(() => {
+  useGSAP(() => {
     if (!heroRef.current || cardsRef.current.length < 3) return;
 
     const card1 = cardsRef.current[0];
@@ -62,46 +61,47 @@ const HeroSection = ({ movies }) => {
       },
     });
 
-    // Capture initial layout
-    const state = Flip.getState(cardsRef.current);
-
     // Animate cards and spans together
-    tl.to(card1.querySelectorAll("span"), { opacity: 0, duration: 0.2 }, "s")
-      .to(card2.querySelectorAll("span"), { opacity: 0, duration: 0.2 }, "s")
-      .to(card3.querySelectorAll("span"), { opacity: 0, duration: 0.2 }, "s")
+    tl.to(
+      [
+        card1.querySelectorAll("span"),
+        card2.querySelectorAll("span"),
+        card3.querySelectorAll("span"),
+      ],
+      { opacity: 0, duration: 0.2, stagger: 0.1 },
+      "s"
+    )
       .to(card1, { x: moveX1, zIndex: 1 })
       .to(card2, { zIndex: 2 }, "<")
       .to(card3, { x: moveX3, zIndex: 3 }, "<");
 
-    // Flip animation
-    Flip.from(state, {
-      duration: 1,
-      ease: "power3.inOut",
-      absolute: true,
-    });
+    // ✅ Cleanup on unmount
+    return () => {
+      tl.scrollTrigger?.kill();
+      tl.kill();
+    };
   }, []);
 
-  useEffect(() => {
-  if (!heroRef.current) return;
+  useGSAP(() => {
+    if (!heroRef.current) return;
 
-  const upcomingTitle = document.querySelector("#Upcoming_title");
-  const h2 = upcomingTitle.querySelector("h2");
+    const upcomingTitle = document.querySelector("#Upcoming_title");
+    const h2 = upcomingTitle.querySelector("h2");
 
-  if (!upcomingTitle || !h2) return;
+    if (!upcomingTitle || !h2) return;
 
-  const tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: heroRef.current,
-      start: "bottom 90%", // when bottom of hero hits 90% of viewport
-      end: "bottom 50%",   // end scroll point
-      scrub: true,
-    },
-  });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: heroRef.current,
+        start: "bottom 90%", // when bottom of hero hits 90% of viewport
+        end: "bottom 50%", // end scroll point
+        scrub: true,
+      },
+    });
 
-  tl.to(upcomingTitle, { y: 140, ease: "power3.out" }) // move the whole section down
-    .to(h2, { fontSize: "6rem", ease: "power3.out" }, "<"); // increase h2 font size at the same time
-}, []);
-
+    tl.to(upcomingTitle, { y: 140, ease: "power3.out" }) // move the whole section down
+      .to(h2, { fontSize: "6rem", ease: "power3.out" }, "<"); // increase h2 font size at the same time
+  }, []);
 
   return (
     <div id="hero_section_container" ref={heroRef}>
