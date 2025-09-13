@@ -35,8 +35,8 @@ const Highlights = () => {
       <h5 className="tag">highlight</h5>
       <h2 ref={titleRef}>News and Updates</h2>
       <div id="highlights_container">
-        {highlightData.map((item) => (
-          <HighlightCard key={item.id} data={item} />
+        {highlightData.map((item,index) => (
+          <HighlightCard key={item.id} data={item}  isLast={index === highlightData.length - 1} />
         ))}
       </div>
     </section>

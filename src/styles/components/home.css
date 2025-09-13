@@ -185,12 +185,16 @@
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  border-bottom: 1px solid #ffffff50;
   padding-bottom: 2rem;
+  position: relative;
 }
-
-.highlight_card:last-child {
-  border: none;
+.highlight_card .highlight_line{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #fcfcfc;
 }
 
 .highlight_info {
