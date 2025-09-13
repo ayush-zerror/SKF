@@ -66,11 +66,15 @@ body {
   padding: 3.5rem;
   position: relative;
   height: auto;
+  background-color: #fff;
 }
 #movie_listing.hero {
   padding-top: 7rem;
 }
 
+#movie_listing.home {
+  height: 100vh;
+}
 .filter_movie {
   display: flex;
   align-items: center;

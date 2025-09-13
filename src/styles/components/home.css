@@ -1,10 +1,14 @@
 /* hero section  */
+#hero_section_container {
+  width: 100%;
+}
 
 #hero_section {
+  position: sticky;
+  top: 0;
   width: 100%;
   height: 100vh;
   background-color: #1d1d1d;
-  z-index: 9;
   color: #fff;
   display: flex;
   align-items: center;
@@ -59,13 +63,30 @@
 
 /* hero section start  */
 
+/* movie_carouse_section start*/
+
+#movie_carouse_section {
+  width: 100%;
+  height: 100vh;
+  padding: 3.5rem;
+  background-color: #fff;
+  position: relative;
+}
+
+#movie_carousel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.2rem;
+}
+/* movie_carouse_section end */
+
 /* upcoming section */
 
 #upcoming_section {
   width: 100%;
   height: 100vh;
   position: relative;
-  padding-top: 5rem;
 }
 #upcoming_section img {
   width: 100%;
@@ -247,8 +268,8 @@
   object-fit: cover;
   transition: transform 0.3s cubic-bezier(0.38, 0.005, 0.215, 1);
 }
-.about_overlay_inner_text{
-   position: absolute;
+.about_overlay_inner_text {
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
