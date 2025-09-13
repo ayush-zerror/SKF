@@ -98,7 +98,7 @@ const HeroSection = ({ movies }) => {
     },
   });
 
-  tl.to(upcomingTitle, { y: 130, ease: "power3.out" }) // move the whole section down
+  tl.to(upcomingTitle, { y: 140, ease: "power3.out" }) // move the whole section down
     .to(h2, { fontSize: "6rem", ease: "power3.out" }, "<"); // increase h2 font size at the same time
 }, []);
 

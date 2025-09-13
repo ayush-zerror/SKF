@@ -90,6 +90,41 @@ const HeroLoader = () => {
     };
   }, []);
 
+useEffect(() => {
+  const playBtn = document.getElementById("play_btn");
+  const videoEl = landingVideoRef.current.querySelector("video");
+
+  if (!playBtn || !videoEl) return;
+
+  // Make button fixed so it follows cursor exactly
+  playBtn.style.position = "fixed";
+  playBtn.style.pointerEvents = "none"; // optional: allow clicks to pass through if needed
+
+  // Move play button with cursor
+  const moveBtn = (e) => {
+    playBtn.style.left = `${e.clientX}px`;
+    playBtn.style.top = `${e.clientY}px`;
+    playBtn.style.transform = "translate(-50%, -50%)"; // center on cursor
+  };
+
+  window.addEventListener("mousemove", moveBtn);
+
+  // Toggle mute/unmute on video click
+  const toggleMute = () => {
+    videoEl.muted = !videoEl.muted;
+    playBtn.textContent = videoEl.muted ? "Unmute" : "Mute";
+  };
+  landingVideoRef.current.addEventListener("click", toggleMute);
+
+  // Cleanup
+  return () => {
+    window.removeEventListener("mousemove", moveBtn);
+    landingVideoRef.current.removeEventListener("click", toggleMute);
+  };
+}, []);
+
+
+
   return (
     <div id="hero_section" ref={loaderRef}>
       <h2>
@@ -112,8 +147,9 @@ const HeroLoader = () => {
           muted
           loop
           playsInline
-          src="/images/home/hero.mp4"
+          src="/images/home/loader.mp4"
         ></video>
+        <span id="play_btn">Unmute</span>
       </div>
     </div>
   );
