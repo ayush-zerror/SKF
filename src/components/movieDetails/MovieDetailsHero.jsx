@@ -1,10 +1,45 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const MovieDetailsHero = () => {
+  const bannerRef = useRef(null);
+  const detailsRef = useRef(null);
+
+  useGSAP(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // Banner drops in
+    tl.to(bannerRef.current, {
+      y: "0%",
+      opacity: 1,
+      duration: 1.5,
+      ease: "power3.out",
+      overwrite: "auto",
+    })
+      // Details rise up
+      .to(
+        detailsRef.current,
+        {
+          y: "0%",
+          opacity: 1,
+          duration: 1.5,
+          ease: "power3.out",
+          overwrite: "auto",
+        },
+        "-=1.0" // overlap
+      );
+  }, []);
+
   return (
     <div id="movie_details_hero">
-      <div className="movie_banner">
+      <div
+        ref={bannerRef}
+        className="movie_banner"
+        style={{ transform: "translateY(-100%)", opacity: 0 }}
+      >
         <Image
           width={1000}
           height={1000}
@@ -15,7 +50,12 @@ const MovieDetailsHero = () => {
           <h2 className="heading">sikandar</h2>
         </div>
       </div>
-      <div className="movie_details_info">
+
+      <div
+        ref={detailsRef}
+        className="movie_details_info"
+        style={{ transform: "translateY(100%)", opacity: 0 }}
+      >
         <div>
           <p>Directed By</p>
           <h4>A.R. Murugadoss</h4>
@@ -25,7 +65,7 @@ const MovieDetailsHero = () => {
           <h4>Salman Khan</h4>
         </div>
         <div>
-          <p>genre</p>
+          <p>Genre</p>
           <h4>Action/Thriller</h4>
         </div>
         <div>

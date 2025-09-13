@@ -126,11 +126,11 @@
 }
 
 #highlight_section .tag {
-  color: #FCFCFC;
+  color: #fcfcfc;
 }
 #highlight_section h2 {
   font-family: BebasNeue;
-  color: #F5F5DC;
+  color: #f5f5dc;
   font-size: 3.75rem;
   font-weight: 400;
   line-height: 1;
@@ -172,7 +172,7 @@
   text-transform: uppercase;
   color: #fcfcfc !important;
 }
-.highlight_info .description{
+.highlight_info .description {
   text-transform: capitalize;
   width: 90%;
 }
@@ -200,22 +200,62 @@
   width: 100%;
   height: 100vh;
   position: relative;
-  background-image: url(/images/home/about_banner.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 25%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  background-color: #1d1d1d;
+}
+
+#about_section > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .about_overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  height: 80%;
+  overflow: hidden;
+}
+.about_overlay > img {
   width: 100%;
   height: 100%;
-  background-color: #1d1d1dcf;
-  padding: 8rem 28rem;
+  object-fit: cover;
+  filter: blur(2px);
+  transform: scale(1) rotate(0deg);
+  transition: transform 0.3s cubic-bezier(0.38, 0.005, 0.215, 1);
 }
 
+#about_section:hover .about_overlay > img {
+  transform: scale(1.1) rotate(2deg);
+}
+#about_section:hover .about_overlay_inner > img {
+  transform: scale(0.85);
+}
+.about_overlay_inner {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.about_overlay_inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s cubic-bezier(0.38, 0.005, 0.215, 1);
+}
+.about_overlay_inner_text{
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: red;
+}
 .about_overlay .tag {
   color: #fff;
 }

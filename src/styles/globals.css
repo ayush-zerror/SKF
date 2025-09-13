@@ -371,6 +371,7 @@ body {
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 3rem;
+  height: 30vw;
 }
 
 .director_card {

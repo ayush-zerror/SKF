@@ -1,32 +1,65 @@
-import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
-import React, { useRef } from "react";
+import Image from "next/image";
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const AboutSection = () => {
-  const titleRef = useRef(null);
-  const paraRef1 = useRef(null);
-  const paraRef2 = useRef(null);
-  useSplitTextMaskAnimation([titleRef, paraRef1, paraRef2]);
+  const bgRef = useRef(null);
+
+  useGSAP(() => {
+    if (!bgRef.current) return;
+
+    const ctx = gsap.context(() => {
+      const anim = gsap.fromTo(
+        bgRef.current,
+        { yPercent: -20 },
+        {
+          yPercent: 20,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#about_section",
+            scroller: "body",
+            scrub: true,
+            start: "top bottom",
+            end: "bottom top",
+          },
+        }
+      );
+      return () => anim.kill();
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section id="about_section">
+      <Image
+        width={1000}
+        height={1000}
+        src="/images/home/news1.png"
+        alt="image"
+        className="object-cover"
+        ref={bgRef}
+      />
+      {/* Overlay Content */}
       <div className="about_overlay">
-        <h5 className="tag">About</h5>
-        <h2 ref={titleRef} className="heading">
-          Bringing Sto<span className="letter-u">r</span>ies to Life, One <br />{" "}
-          Block<span className="letter-u">b</span>uster at a Time
-        </h2>
-        <p ref={paraRef1} className="description">
-          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Founded in 2011 by Salman
-          Khan, Salman Khan Films (SKF) is a Mumbai-based production house
-          behind blockbusters like Bajrangi Bhaijaan, Race 3, and Antim. Known
-          for powerful storytelling, grand entertainment.
-        </p>
-        <p ref={paraRef2} className="description">
-           The company is known not only for bringing grand cinematic
-          experiences to the audience but also for supporting fresh talent and
-          innovative storytelling.
-        </p>
+        <Image
+          width={1000}
+          height={1000}
+          src="/images/home/about_banner.jpg"
+          alt="image"
+        />
+        <div className="about_overlay_inner">
+          <Image
+            width={1000}
+            height={1000}
+            src="/images/home/about_banner.jpg"
+            alt="image"
+          />
+        </div>
       </div>
     </section>
   );

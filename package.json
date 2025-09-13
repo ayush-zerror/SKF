@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@studio-freight/lenis": "^1.0.42",
     "@studio-freight/tempus": "^0.0.44",
     "gsap": "^3.13.0",
