@@ -12,8 +12,8 @@ const Home = ({ movies }) => {
   return (
     <>
       <HeroSection />
-      <UpcomingSection />
       <MoviesListing data={movies} />
+      <UpcomingSection />
       <DirectorsSection />
       <Gallery />
       <Highlights />

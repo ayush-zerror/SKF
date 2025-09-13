@@ -15,7 +15,7 @@ const MovieCard = ({ data, id }) => {
         />
       </div>
       <div className="movie_dets">
-        <span>{`[${id}] ${data?.title}`}</span>
+        <span>{`${data?.title}`}</span>
         <span>{data?.year}</span>
       </div>
     </Link>

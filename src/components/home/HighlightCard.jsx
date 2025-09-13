@@ -6,8 +6,9 @@ import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 const HighlightCard = ({ data }) => {
   const paraRef = useRef(null);
   const titleRef = useRef(null);
+  const descriptionRef = useRef(null);
 
-  useSplitTextMaskAnimation([paraRef, titleRef]);
+  useSplitTextMaskAnimation([paraRef, titleRef,descriptionRef]);
 
   return (
     <div className="highlight_card">
@@ -15,7 +16,7 @@ const HighlightCard = ({ data }) => {
         <div className="highlight_info_dets">
           <p ref={paraRef}>{data?.date}</p>
           <h4 ref={titleRef}>{data?.title}</h4>
-          <span className="category">{data?.category}</span>
+          <p ref={descriptionRef} className="description">{data?.description}</p>
         </div>
         <Button title="Read More" color={"white"} />
       </div>

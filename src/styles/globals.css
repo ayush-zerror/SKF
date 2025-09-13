@@ -121,7 +121,9 @@ body {
 #movie_container.hero {
   grid-template-columns: repeat(2, 1fr);
 }
-
+#movie_container.home{
+  margin-top: 2.2rem;
+}
 .movie_card {
   display: flex;
   flex-direction: column;

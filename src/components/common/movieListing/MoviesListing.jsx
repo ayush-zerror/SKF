@@ -7,7 +7,7 @@ const MoviesListing = ({ isHero, data }) => {
   const filters = ["all", "released", "upcoming movies"];
   const [filter, setFilter] = useState("released");
   const titleRef = useRef(null);
-  useSplitTextMaskAnimation([titleRef])
+  useSplitTextMaskAnimation([titleRef]);
 
   return (
     <section id="movie_listing" className={`${isHero ? "hero" : ""}`}>
@@ -20,25 +20,27 @@ const MoviesListing = ({ isHero, data }) => {
         </h3>
 
         {/* Filter Section */}
-        <div className="filter_movie">
-          {filters.map((f, idx) => (
-            <span
-              key={idx}
-              onClick={() => setFilter(f)}
-              className={`${f === filter ? "active" : ""} `}
-            >
-              {f}
-            </span>
-          ))}
-        </div>
+        {isHero && (
+          <div className="filter_movie">
+            {filters.map((f, idx) => (
+              <span
+                key={idx}
+                onClick={() => setFilter(f)}
+                className={`${f === filter ? "active" : ""} `}
+              >
+                {f}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Movie Container */}
-        <div id="movie_container" className={isHero ? "hero" : ""}>
-          {data.map((movie, index) => (
-            <MovieCard key={index} id={index + 1} data={movie} />
-          ))}
-        </div>
+      <div id="movie_container" className={isHero ? "hero" : "home"}>
+        {data.map((movie, index) => (
+          <MovieCard key={index} id={index + 1} data={movie} />
+        ))}
+      </div>
       {isHero && (
         <div className="movie_listing_btn">
           <Button color={"black"} title={"show more"} />
