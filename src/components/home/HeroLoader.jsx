@@ -4,6 +4,8 @@ import gsap from "gsap";
 const HeroLoader = () => {
   const loaderRef = useRef(null);
   const landingVideoRef = useRef(null);
+  const playBtnRef = useRef(null);
+
 
   useEffect(() => {
     // 🚫 Immediately lock scroll when loader mounts
@@ -31,10 +33,14 @@ const HeroLoader = () => {
 
       const tl = gsap.timeline({
         defaults: { ease: "power2.out", overwrite: "auto" },
+        onStart:()=>{
+          playBtnRef.current.style.opacity = "0";
+        },
         onComplete: () => {
           // ✅ Unlock scroll after animation ends
           document.documentElement.style.overflow = "";
           document.body.style.overflow = "";
+          playBtnRef.current.style.opacity = "1";
         },
       });
 
@@ -91,22 +97,21 @@ const HeroLoader = () => {
   }, []);
 
 useEffect(() => {
-  const playBtn = document.getElementById("play_btn");
-  const videoEl = landingVideoRef.current.querySelector("video");
+  const playBtn = playBtnRef.current;
+  const videoEl = landingVideoRef.current?.querySelector("video");
+  const navbar = document.querySelector("nav"); // your nav element
 
-  if (!playBtn || !videoEl) return;
+  if (!playBtn || !videoEl || !navbar) return;
 
-  // Make button fixed so it follows cursor exactly
   playBtn.style.position = "fixed";
-  playBtn.style.pointerEvents = "none"; // optional: allow clicks to pass through if needed
+  playBtn.style.pointerEvents = "none";
 
   // Move play button with cursor
   const moveBtn = (e) => {
     playBtn.style.left = `${e.clientX}px`;
     playBtn.style.top = `${e.clientY}px`;
-    playBtn.style.transform = "translate(-50%, -50%)"; // center on cursor
+    playBtn.style.transform = "translate(-50%, -50%)";
   };
-
   window.addEventListener("mousemove", moveBtn);
 
   // Toggle mute/unmute on video click
@@ -116,10 +121,22 @@ useEffect(() => {
   };
   landingVideoRef.current.addEventListener("click", toggleMute);
 
+  // Hide/show playBtn when hovering navbar
+  const handleNavEnter = () => {
+    playBtn.style.opacity = "0";
+  };
+  const handleNavLeave = () => {
+    playBtn.style.opacity = "1";
+  };
+  navbar.addEventListener("mouseenter", handleNavEnter);
+  navbar.addEventListener("mouseleave", handleNavLeave);
+
   // Cleanup
   return () => {
     window.removeEventListener("mousemove", moveBtn);
     landingVideoRef.current.removeEventListener("click", toggleMute);
+    navbar.removeEventListener("mouseenter", handleNavEnter);
+    navbar.removeEventListener("mouseleave", handleNavLeave);
   };
 }, []);
 
@@ -149,7 +166,7 @@ useEffect(() => {
           playsInline
           src="/images/home/loader.mp4"
         ></video>
-        <span id="play_btn">Unmute</span>
+        <span ref={playBtnRef} id="play_btn">Unmute</span>
       </div>
     </div>
   );

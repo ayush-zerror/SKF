@@ -59,7 +59,7 @@
 }
 #play_btn {
   transform-origin: center;
-  transition: scale 0.3s ease;
+  transition: scale 0.3s ease,opacity 0.3s ease;
   position: absolute;
   top: 50%;
   left: 50%;
