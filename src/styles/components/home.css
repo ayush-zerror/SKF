@@ -63,14 +63,18 @@
 
 /* hero section start  */
 
-/* movie_carouse_section start*/
+/* movie_carouse_sectionl start*/
 
-#movie_carouse_section {
+#movie_carouse_sectionl {
   width: 100%;
   height: 100vh;
   padding: 3.5rem;
+  padding-bottom: 2.5rem;
   background-color: #fff;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #movie_carousel {
@@ -79,14 +83,26 @@
   gap: 1.5rem;
   margin-top: 2.2rem;
 }
-/* movie_carouse_section end */
+#Upcoming_title{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 9;
+}
+#Upcoming_title p{
+  width: 35%;
+  text-align: center;
+  margin-top: .5rem;
+}
+/* movie_carouse_sectionl end */
 
 /* upcoming section */
 
 #upcoming_section {
   width: 100%;
   height: 100vh;
-  position: relative;
 }
 #upcoming_section img {
   width: 100%;
@@ -219,7 +235,7 @@
 
 #about_section {
   width: 100%;
-  height: 100vh;
+  height: 150vh;
   position: relative;
   overflow: hidden;
   background-color: #1d1d1d;
@@ -237,7 +253,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
-  height: 80%;
+  height: 70%;
   overflow: hidden;
 }
 .about_overlay > img {
@@ -275,7 +291,6 @@
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  background-color: red;
 }
 .about_overlay .tag {
   color: #fff;

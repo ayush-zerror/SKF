@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { forwardRef } from "react";
 
-const MovieCard = ({ data, id }) => {
+const MovieCard = forwardRef(({ data, id }, ref) => {
   return (
-    <Link href="/movies/1" className="movie_card">
+    <Link href="/movies/1" className="movie_card" ref={ref}>
       <div className="movie_img">
         <video autoPlay muted loop playsInline src={data?.trailer}></video>
         <Image
@@ -20,6 +20,6 @@ const MovieCard = ({ data, id }) => {
       </div>
     </Link>
   );
-};
+});
 
 export default MovieCard;

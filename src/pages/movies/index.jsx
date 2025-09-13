@@ -1,4 +1,4 @@
-import MoviesListing from "@/components/common/movieListing/MoviesListing";
+import MoviesListing from "@/components/movieListing/MoviesListing";
 import { movies } from "@/helper/moviesData";
 import React from "react";
 

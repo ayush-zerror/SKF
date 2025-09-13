@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import MovieCard from "./MovieCard";
-import Button from "../Button";
+import Button from "../common/Button";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 
 const MoviesListing = ({ data }) => {

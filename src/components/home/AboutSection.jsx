@@ -9,30 +9,30 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutSection = () => {
   const bgRef = useRef(null);
 
-  useGSAP(() => {
-    if (!bgRef.current) return;
+  // useGSAP(() => {
+  //   if (!bgRef.current) return;
 
-    const ctx = gsap.context(() => {
-      const anim = gsap.fromTo(
-        bgRef.current,
-        { yPercent: -20 },
-        {
-          yPercent: 20,
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#about_section",
-            scroller: "body",
-            scrub: true,
-            start: "top bottom",
-            end: "bottom top",
-          },
-        }
-      );
-      return () => anim.kill();
-    });
+  //   const ctx = gsap.context(() => {
+  //     const anim = gsap.fromTo(
+  //       bgRef.current,
+  //       { yPercent: -20 },
+  //       {
+  //         yPercent: 20,
+  //         ease: "none",
+  //         scrollTrigger: {
+  //           trigger: "#about_section",
+  //           scroller: "body",
+  //           scrub: true,
+  //           start: "top bottom",
+  //           end: "bottom top",
+  //         },
+  //       }
+  //     );
+  //     return () => anim.kill();
+  //   });
 
-    return () => ctx.revert();
-  }, []);
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <section id="about_section">
