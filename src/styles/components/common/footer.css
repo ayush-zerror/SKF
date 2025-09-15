@@ -6,7 +6,7 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 50vh;
+  height: 45vh;
 }
 
 #footer_top {

@@ -56,7 +56,7 @@ const AboutSection = () => {
       <Image
         width={1000}
         height={1000}
-        src="/images/home/news1.png"
+        src="/images/home/about_bg.png"
         alt="image"
         ref={bgRef}
       />

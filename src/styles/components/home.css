@@ -274,7 +274,7 @@
 
 #about_section {
   width: 100%;
-  height: 110vh;
+  height: 150vh;
   position: relative;
   overflow: hidden;
   background-color: #1d1d1d;
@@ -285,6 +285,7 @@
   height: 100%;
   object-fit: cover;
   filter: brightness(0.4);
+  object-position: top;
 }
 
 .about_overlay {
@@ -306,11 +307,11 @@
 
 }
 
-#about_section:hover .about_overlay > img {
+.about_overlay:hover > img {
   transform: scale(1.1) rotate(2deg);
 }
-#about_section:hover .about_overlay_inner {
-  transform: translate(-50%, -50%) scale(0.9);
+.about_overlay:hover .about_overlay_inner {
+  transform: translate(-50%, -50%) scale(0.85);
 }
 .about_overlay_inner {
   width: 100%;
