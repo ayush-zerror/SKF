@@ -393,6 +393,8 @@ body {
 }
 #directors_container:has(.director_card:hover) .director_card:not(:hover) {
   transform: translateY(1.5rem);
+  opacity: .5;
+  filter: blur(5px);
 }
 
 .director_card img {
