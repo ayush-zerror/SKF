@@ -9,30 +9,25 @@ gsap.registerPlugin(ScrollTrigger);
 const AboutSection = () => {
   const bgRef = useRef(null);
 
-  // useGSAP(() => {
-  //   if (!bgRef.current) return;
+  useGSAP(() => {
+    if (!bgRef.current) return;
 
-  //   const ctx = gsap.context(() => {
-  //     const anim = gsap.fromTo(
-  //       bgRef.current,
-  //       { yPercent: -20 },
-  //       {
-  //         yPercent: 20,
-  //         ease: "none",
-  //         scrollTrigger: {
-  //           trigger: "#about_section",
-  //           scroller: "body",
-  //           scrub: true,
-  //           start: "top bottom",
-  //           end: "bottom top",
-  //         },
-  //       }
-  //     );
-  //     return () => anim.kill();
-  //   });
+   gsap.fromTo(
+  bgRef.current,
+  { y: "-20%" }, // start position
+  {
+    y: "20%",    // end position
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#about_section",
+      start: "top bottom",
+      end: "bottom+=100 top",
+      scrub: true,
+    },
+  }
+);
 
-  //   return () => ctx.revert();
-  // }, []);
+  }, []);
 
   return (
     <section id="about_section">
@@ -41,7 +36,6 @@ const AboutSection = () => {
         height={1000}
         src="/images/home/news1.png"
         alt="image"
-        className="object-cover"
         ref={bgRef}
       />
       {/* Overlay Content */}
