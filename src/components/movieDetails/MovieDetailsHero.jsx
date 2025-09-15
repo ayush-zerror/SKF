@@ -1,12 +1,15 @@
-"use client";
-import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import MovieBanner from "./MovieBanner";
+import MovieInfo from "./MovieInfo";
+import MovieTrailerVideo from "./MovieTrailerVideo";
 
 const MovieDetailsHero = () => {
   const bannerRef = useRef(null);
   const detailsRef = useRef(null);
+  const [showVideo, setShowVideo] = useState(false);
+
 
   useGSAP(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -35,53 +38,9 @@ const MovieDetailsHero = () => {
 
   return (
     <div id="movie_details_hero">
-      <div
-        ref={bannerRef}
-        className="movie_banner"
-        style={{ transform: "translateY(-100%)", opacity: 0 }}
-      >
-        <Image
-          width={1000}
-          height={1000}
-          src="/images/moviedetails/movie_banner.png"
-          alt="image"
-        />
-        <div className="movie_banner_overlay">
-          <h2 className="heading">sikandar</h2>
-        </div>
-      </div>
-
-      <div
-        ref={detailsRef}
-        className="movie_details_info"
-        style={{ transform: "translateY(100%)", opacity: 0 }}
-      >
-        <div>
-          <p>Directed By</p>
-          <h4>A.R. Murugadoss</h4>
-        </div>
-        <div>
-          <p>Produced By</p>
-          <h4>Salman Khan</h4>
-        </div>
-        <div>
-          <p>Genre</p>
-          <h4>Action/Thriller</h4>
-        </div>
-        <div>
-          <p>Duration</p>
-          <h4>2h 15m</h4>
-        </div>
-        <div>
-          <p>Watch now</p>
-          <Image
-            width={1000}
-            height={1000}
-            src="/images/moviedetails/netflix.png"
-            alt="image"
-          />
-        </div>
-      </div>
+      <MovieBanner bannerRef={bannerRef} setShowVideo={setShowVideo}/>
+      <MovieInfo detailsRef={detailsRef} />
+      <MovieTrailerVideo showVideo={showVideo} setShowVideo={setShowVideo}/>
     </div>
   );
 };
