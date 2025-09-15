@@ -259,12 +259,13 @@
 
 .highlight_img {
   width: 35%;
-  height: auto;
+  height: 350px;
+  overflow: hidden;
 }
 
 .highlight_img img {
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -272,7 +273,7 @@
 
 #about_section {
   width: 100%;
-  height: 150vh;
+  height: 110vh;
   position: relative;
   overflow: hidden;
   background-color: #1d1d1d;
@@ -282,6 +283,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(0.4);
 }
 
 .about_overlay {
@@ -289,7 +291,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 70%;
   height: 70%;
   overflow: hidden;
 }
@@ -297,37 +299,45 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(2px);
+  filter: blur(2px) brightness(.5);
   transform: scale(1) rotate(0deg);
   transition: transform 0.3s cubic-bezier(0.38, 0.005, 0.215, 1);
+
 }
 
 #about_section:hover .about_overlay > img {
   transform: scale(1.1) rotate(2deg);
 }
-#about_section:hover .about_overlay_inner > img {
-  transform: scale(0.85);
+#about_section:hover .about_overlay_inner {
+  transform: translate(-50%, -50%) scale(0.9);
 }
 .about_overlay_inner {
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.3s cubic-bezier(0.38, 0.005, 0.215, 1);
 }
 .about_overlay_inner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s cubic-bezier(0.38, 0.005, 0.215, 1);
+  object-position: 50% 30%;
+  filter: brightness(.5);
 }
-.about_overlay_inner_text {
+.about_text_content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
+  padding: 3.5rem 16rem; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .about_overlay .tag {
   color: #fff;

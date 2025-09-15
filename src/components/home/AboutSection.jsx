@@ -52,17 +52,16 @@ const AboutSection = () => {
   }, []);
 
   return (
-    <section id="about_section" className="relative overflow-hidden">
+    <section id="about_section">
       <Image
         width={1000}
         height={1000}
         src="/images/home/news1.png"
         alt="image"
-        className="object-cover w-full h-full absolute top-0 left-0"
         ref={bgRef}
       />
       {/* Overlay Content */}
-      <div className="about_overlay relative z-10">
+      <div className="about_overlay">
         <Image
           width={1000}
           height={1000}
@@ -76,6 +75,23 @@ const AboutSection = () => {
             src="/images/home/about_banner.jpg"
             alt="image"
           />
+          <div className="about_text_content">
+            <h5 className="tag">about</h5>
+            <h2 className="heading">
+              Bringing Stories to Life, One <br /> Blockbuster at a Time
+            </h2>
+            <p className="description">
+              Founded in 2011 by Salman Khan, Salman Khan Films (SKF) is a
+              Mumbai-based production house behind blockbusters like Bajrangi
+              Bhaijaan, Race 3, and Antim. Known for powerful storytelling,
+              grand entertainment.
+            </p>
+            <p className="description">
+               The company is known not only for bringing grand cinematic
+              experiences to the audience but also for supporting fresh talent
+              and innovative storytelling.
+            </p>
+          </div>
         </div>
       </div>
     </section>
