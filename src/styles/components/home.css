@@ -89,7 +89,7 @@
 
 /* movie_carouse_sectionl start*/
 
-#movie_carouse_sectionl {
+#movie_carousel_section {
   width: 100%;
   height: 100vh;
   padding: 3.5rem;
@@ -100,6 +100,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 3rem;
+  overflow: hidden;
 }
 
 #movie_carousel {
@@ -121,57 +122,25 @@
   text-align: center;
   margin-top: .5rem;
 }
-/* movie_carouse_sectionl end */
 
-/* upcoming section */
-
-#upcoming_section {
-  width: 100%;
-  height: 100vh;
-}
-#upcoming_section img {
+#upcoming_poster {
   width: 100%;
   height: 100%;
-}
-
-/* marquee */
-
-#marquee_container {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
   position: absolute;
-  top: 2.1rem;
+  top: 100%;
+  left: 50%;
+  transform:translateX(-50%);
+  padding-top: 3.5rem;
+  overflow: hidden;
 }
-#marquee_container h2 {
-  display: inline-block;
-  font-size: 5.5rem;
-  color: transparent;
-  white-space: nowrap;
-  margin-right: 4rem;
-  font-family: BebasNeue;
-  font-weight: 500;
-  animation-name: marq;
-  animation-duration: 10s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  -webkit-background-clip: text;
-  background-clip: text;
-  background-image: url(/images/home/marquee.png);
+#upcoming_poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.dark #marquee_container h2 {
-  color: var(--lightbrown);
-}
+/* movie_carouse_sectionl end */
 
-@keyframes marq {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(calc(-100% - 4rem));
-  }
-}
 /* directors section */
 
 #directors_section {

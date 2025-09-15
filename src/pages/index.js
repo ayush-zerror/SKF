@@ -5,13 +5,11 @@ import HeroSection from '@/components/home/HeroSection'
 import Highlights from '@/components/home/Highlights'
 import React from 'react'
 import { movies } from '@/helper/moviesData'
-import UpcomingSection from '@/components/home/UpcomingSection'
 
 const Home = ({ movies }) => {
   return (
     <>
       <HeroSection movies={movies} />
-      <UpcomingSection />
       <DirectorsSection />
       <Gallery />
       <Highlights />

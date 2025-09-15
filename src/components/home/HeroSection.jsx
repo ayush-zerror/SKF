@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 import { useGSAP } from "@gsap/react";
+import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,11 +22,11 @@ const HeroSection = ({ movies }) => {
       if (!card) return;
       gsap.fromTo(
         card,
-        { x: 200, opacity: 0 },
+        { x: 1500, opacity: 0 },
         {
           x: 0,
           opacity: 1,
-          duration: 1,
+          duration: 1.2,
           ease: "power3.out",
           scrollTrigger: {
             trigger: card,
@@ -51,62 +52,109 @@ const HeroSection = ({ movies }) => {
     const moveX1 = card2Rect.left - card1Rect.left;
     const moveX3 = card2Rect.right - card3Rect.right;
 
+    const carouselContent = document.getElementById("movie_carousel_content");
+    const upcomingTitle = document.getElementById("Upcoming_title");
+    const parentSection = document.getElementById("movie_carousel_section");
+    const upcomingPoster = document.getElementById("upcoming_poster");
+
+    // dynamic distances
+    const distanceToTop =
+      upcomingTitle.getBoundingClientRect().top -
+      parentSection.getBoundingClientRect().top;
+
+    const posterDistanceToTop =
+      upcomingPoster.getBoundingClientRect().top -
+      parentSection.getBoundingClientRect().top;
+
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: heroRef.current,
         start: "bottom bottom",
         end: "bottom top",
         pin: true,
-        scrub: true,
+        scrub: 0.8, // smoother scroll
       },
     });
 
-    // Animate cards and spans together
+    // Cards fade & slide
     tl.to(
       [
         card1.querySelectorAll("span"),
         card2.querySelectorAll("span"),
         card3.querySelectorAll("span"),
       ],
-      { opacity: 0, duration: 0.2, stagger: 0.1 },
-      "s"
+      {
+        opacity: 0,
+        duration: 0.4,
+        stagger: 0.1,
+        force3D: true,
+      },
+      "cards"
     )
-      .to(card1, { x: moveX1, zIndex: 1 })
-      .to(card2, { zIndex: 2 }, "<")
-      .to(card3, { x: moveX3, zIndex: 3 }, "<");
+      .to(card1, { x: moveX1, zIndex: 1, force3D: true, duration: 1.2 })
+      .to(card2, { zIndex: 2, force3D: true, duration: 1.2 }, "<")
+      .to(card3, { x: moveX3, zIndex: 3, force3D: true, duration: 1.2 }, "<")
 
-    // ✅ Cleanup on unmount
+      // Move carousel content up smoothly
+      .to(
+        carouselContent,
+        {
+          y: "-100%",
+          opacity: 0,
+          duration: 1.4,
+          ease: "power3.inOut",
+          force3D: true,
+        },
+        "upcoming"
+      )
+
+      // Move Upcoming_title to top dynamically
+      .to(
+        upcomingTitle,
+        {
+          y: `-${distanceToTop}px`,
+          paddingTop: "3.5rem",
+          duration: 2,
+          ease: "power2.out", // slightly gentler easing
+          force3D: true,
+        },
+        "upcoming+=0.5"
+      )
+
+      // Scale h2 simultaneously
+      .to(
+        upcomingTitle.querySelector("h2"),
+        {
+          fontSize: "5rem",
+          duration: 2,
+          ease: "power2.out",
+          force3D: true,
+        },
+        "upcoming+=0.5"
+      )
+
+      // Move upcoming poster dynamically
+      .to(
+        upcomingPoster,
+        {
+          y: `-${posterDistanceToTop}px`,
+          duration: 2,
+          ease: "power2.out",
+          force3D: true,
+        },
+        "upcoming+=0.5"
+      );
+
     return () => {
       tl.scrollTrigger?.kill();
       tl.kill();
     };
   }, []);
 
-  useGSAP(() => {
-    if (!heroRef.current) return;
-
-    const upcomingTitle = document.querySelector("#Upcoming_title");
-    const h2 = upcomingTitle.querySelector("h2");
-
-    if (!upcomingTitle || !h2) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: "bottom 90%", // when bottom of hero hits 90% of viewport
-        end: "bottom 50%", // end scroll point
-        scrub: true,
-      },
-    });
-
-    tl.to(upcomingTitle, { y: 140, ease: "power3.out" }) // move the whole section down
-      .to(h2, { fontSize: "6rem", ease: "power3.out" }, "<"); // increase h2 font size at the same time
-  }, []);
-
   return (
     <div id="hero_section_container" ref={heroRef}>
       <HeroLoader />
-      <section id="movie_carouse_sectionl">
+      <section id="movie_carousel_section">
         <div id="movie_carousel_content">
           <h5 className="tag">Movies</h5>
           <h3 ref={titleRef} className="heading">
@@ -130,6 +178,9 @@ const HeroSection = ({ movies }) => {
             Soon hitting the screens: the latest blockbusters and fan-favorite
             stories that are set to wow audiences everywhere.
           </p>
+        </div>
+        <div id="upcoming_poster">
+          <Image width={1000} height={1000} src="/images/home/upcoming.png" />
         </div>
       </section>
     </div>
