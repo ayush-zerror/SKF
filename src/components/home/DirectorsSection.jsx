@@ -24,10 +24,6 @@ const DirectorsSection = () => {
         Visionaries Be<span className="letter-u">h</span>ind the <br /> Ca
         <span className="letter-u">m</span>era
       </h3>
-      <p ref={paraRef} className="description">
-        SKF collaborates with some of <br /> the most creative directors in{" "}
-        <br /> Indian cinema.
-      </p>
       <DirectorsContainer data={directors} />
     </section>
   );

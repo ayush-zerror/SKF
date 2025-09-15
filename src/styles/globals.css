@@ -24,7 +24,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  background-color: white;
+  background-color: #FFFEF1;
 }
 ::-webkit-scrollbar {
   display: none;
@@ -66,15 +66,9 @@ body {
   padding: 3.5rem;
   position: relative;
   height: auto;
-  background-color: #fff;
-}
-#movie_listing.hero {
   padding-top: 7rem;
 }
 
-#movie_listing.home {
-  height: 100vh;
-}
 .filter_movie {
   display: flex;
   align-items: center;
@@ -119,14 +113,8 @@ body {
 #movie_container {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-#movie_container.hero {
   grid-template-columns: repeat(2, 1fr);
-}
-#movie_container.home{
-  margin-top: 2.2rem;
+  gap: 1.5rem;
 }
 .movie_card {
   display: flex;
