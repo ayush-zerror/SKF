@@ -1,11 +1,12 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
+import { GoMute, GoUnmute } from "react-icons/go";
 
 const HeroLoader = () => {
   const loaderRef = useRef(null);
   const landingVideoRef = useRef(null);
   const playBtnRef = useRef(null);
-
+  const [isMuted, setIsMuted] = useState(true);
 
   useEffect(() => {
     // 🚫 Immediately lock scroll when loader mounts
@@ -33,7 +34,7 @@ const HeroLoader = () => {
 
       const tl = gsap.timeline({
         defaults: { ease: "power2.out", overwrite: "auto" },
-        onStart:()=>{
+        onStart: () => {
           playBtnRef.current.style.opacity = "0";
         },
         onComplete: () => {
@@ -96,51 +97,47 @@ const HeroLoader = () => {
     };
   }, []);
 
-useEffect(() => {
-  const playBtn = playBtnRef.current;
-  const videoEl = landingVideoRef.current?.querySelector("video");
+  useEffect(() => {
+    const playBtn = playBtnRef.current;
+    const videoEl = landingVideoRef.current?.querySelector("video");
 
-  if (!playBtn || !videoEl) return;
+    if (!playBtn || !videoEl) return;
 
-  playBtn.style.position = "fixed";
-  playBtn.style.pointerEvents = "none";
+    playBtn.style.position = "fixed";
+    playBtn.style.pointerEvents = "none";
 
-  // Move play button with cursor
-  const moveBtn = (e) => {
-    playBtn.style.left = `${e.clientX}px`;
-    playBtn.style.top = `${e.clientY}px`;
-    playBtn.style.transform = "translate(-50%, -50%)";
-  };
-  window.addEventListener("mousemove", moveBtn);
+    // Move play button with cursor
+    const moveBtn = (e) => {
+      playBtn.style.left = `${e.clientX}px`;
+      playBtn.style.top = `${e.clientY}px`;
+      playBtn.style.transform = "translate(-50%, -50%)";
+    };
+    window.addEventListener("mousemove", moveBtn);
 
-  // Toggle mute/unmute on video click
-  const toggleMute = () => {
-    videoEl.muted = !videoEl.muted;
-    playBtn.textContent = videoEl.muted ? "Unmute" : "Mute";
-  };
-  videoEl.addEventListener("click", toggleMute);
+    // Toggle mute/unmute
+    const toggleMute = () => {
+      videoEl.muted = !videoEl.muted;
+      setIsMuted(videoEl.muted); // 👈 update state instead of text
+    };
+    videoEl.addEventListener("click", toggleMute);
 
-  // Hide/show playBtn when hovering over video
-  const handleVideoEnter = () => {
-    playBtn.style.opacity = "1"; // hide inside video
-  };
-  const handleVideoLeave = () => {
-    playBtn.style.opacity = "0"; // show outside video
-  };
-  videoEl.addEventListener("mouseenter", handleVideoEnter);
-  videoEl.addEventListener("mouseleave", handleVideoLeave);
+    // Show/hide button when hovering over video
+    const handleVideoEnter = () => {
+      playBtn.style.opacity = "1";
+    };
+    const handleVideoLeave = () => {
+      playBtn.style.opacity = "0";
+    };
+    videoEl.addEventListener("mouseenter", handleVideoEnter);
+    videoEl.addEventListener("mouseleave", handleVideoLeave);
 
-  // Cleanup
-  return () => {
-    window.removeEventListener("mousemove", moveBtn);
-    videoEl.removeEventListener("click", toggleMute);
-    videoEl.removeEventListener("mouseenter", handleVideoEnter);
-    videoEl.removeEventListener("mouseleave", handleVideoLeave);
-  };
-}, []);
-
-
-
+    return () => {
+      window.removeEventListener("mousemove", moveBtn);
+      videoEl.removeEventListener("click", toggleMute);
+      videoEl.removeEventListener("mouseenter", handleVideoEnter);
+      videoEl.removeEventListener("mouseleave", handleVideoLeave);
+    };
+  }, []);
 
   return (
     <div id="hero_section" ref={loaderRef}>
@@ -166,7 +163,9 @@ useEffect(() => {
           playsInline
           src="/images/home/loader.mp4"
         ></video>
-        <span ref={playBtnRef} id="play_btn">Unmute</span>
+        <span ref={playBtnRef} id="play_btn">
+          {isMuted ? <GoMute /> : <GoUnmute />} 
+        </span>
       </div>
     </div>
   );

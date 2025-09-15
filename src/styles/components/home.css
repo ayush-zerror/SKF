@@ -64,25 +64,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
-  font-family: BebasNeue;
-  font-weight: 400;
-  font-size: 1.2rem;
-  overflow: clip;
-  padding: .6rem 1.2rem;
+  color: #000;
   mix-blend-mode: difference;
   pointer-events: none;
-  background: 
-    linear-gradient(to right, #fff calc(2 / 14.4 * 1rem), transparent calc(2 / 14.4 * 1rem)) 0 0,
-    linear-gradient(to right, #fff calc(2 / 14.4 * 1rem), transparent calc(2 / 14.4 * 1rem)) 0 100%,
-    linear-gradient(to left,  #fff calc(2 / 14.4 * 1rem), transparent calc(2 / 14.4 * 1rem)) 100% 0,
-    linear-gradient(to left,  #fff calc(2 / 14.4 * 1rem), transparent calc(2 / 14.4 * 1rem)) 100% 100%,
-    linear-gradient(to bottom, #fff calc(2 / 14.4 * 1rem), transparent calc(2 / 14.4 * 1rem)) 0 0,
-    linear-gradient(to bottom, #fff calc(2 / 14.4 * 1rem), transparent calc(2 / 14.4 * 1rem)) 100% 0,
-    linear-gradient(to top,    #fff calc(2 / 14.4 * 1rem), transparent calc(2 / 14.4 * 1rem)) 0 100%,
-    linear-gradient(to top,    #fff calc(2 / 14.4 * 1rem), transparent calc(2 / 14.4 * 1rem)) 100% 100%;
-  background-repeat: no-repeat;
-  background-size: calc(12 / 14.4 * 1rem) calc(12 / 14.4 * 1rem);
+  background-color: white;
+  border-radius: 50px;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .letter_inner {
