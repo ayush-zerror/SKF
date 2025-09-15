@@ -173,7 +173,7 @@ const HeroSection = ({ movies }) => {
           </div>
         </div>
         <div id="Upcoming_title">
-          <h2 className="heading">Upcoming Release</h2>
+          <h2 className="heading">Upcoming Movie</h2>
           <p className="description">
             Soon hitting the screens: the latest blockbusters and fan-favorite
             stories that are set to wow audiences everywhere.
