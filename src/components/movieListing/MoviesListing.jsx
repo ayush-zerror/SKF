@@ -14,9 +14,8 @@ const MoviesListing = ({ data }) => {
       <div className="movie_listing_header">
         <h5 className="tag">Movies</h5>
         <h3 ref={titleRef} className="heading">
-          Explore our top fil<span className="letter-u">m</span>s loved by{" "}
-          <br /> audien<span className="letter-u">c</span>es worldwi
-          <span>d</span>e.
+          Explore our top <span className="letter-u">films</span> loved by{" "}
+          <br /> <span className="letter-u">audiences</span> worldwide.
         </h3>
         <div className="filter_movie">
           {filters.map((f, idx) => (

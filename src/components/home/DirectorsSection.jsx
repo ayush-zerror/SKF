@@ -21,8 +21,8 @@ const DirectorsSection = () => {
     <section id="directors_section">
       <h5 className="tag">Directors</h5>
       <h3 ref={titleRef} className="heading">
-        Visionaries Be<span className="letter-u">h</span>ind the <br /> Ca
-        <span className="letter-u">m</span>era
+        Visionaries <span className="letter-u">Behind</span> the <br /> 
+        <span className="letter-u">Camera</span>
       </h3>
       <DirectorsContainer data={directors} />
     </section>
