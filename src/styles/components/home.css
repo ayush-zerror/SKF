@@ -16,7 +16,7 @@
 }
 
 #hero_section h2 {
-  font-family: BebasNeue;
+  font-family: var(--tag-font);
   font-size: 8rem;
   font-weight: 400;
   height: 7.16rem;
@@ -55,11 +55,11 @@
   background-color: black;
 }
 #landing_video:active #play_btn {
-  scale: .8;
+  scale: 0.8;
 }
 #play_btn {
   transform-origin: center;
-  transition: scale 0.3s ease,opacity 0.3s ease;
+  transition: scale 0.3s ease, opacity 0.3s ease;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -94,7 +94,7 @@
   height: 100vh;
   padding: 3.5rem;
   padding-bottom: 2.5rem;
-  background-color: #FFFEF1;
+  background-color: #fffef1;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -109,7 +109,7 @@
   gap: 1.5rem;
   margin-top: 2.2rem;
 }
-#Upcoming_title{
+#Upcoming_title {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -117,10 +117,10 @@
   position: relative;
   z-index: 9;
 }
-#Upcoming_title p{
+#Upcoming_title p {
   width: 35%;
   text-align: center;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 #upcoming_poster {
@@ -129,7 +129,7 @@
   position: absolute;
   top: 100%;
   left: 50%;
-  transform:translateX(-50%);
+  transform: translateX(-50%);
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -183,7 +183,7 @@
   padding-bottom: 2rem;
   position: relative;
 }
-.highlight_card .highlight_line{
+.highlight_card .highlight_line {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -201,7 +201,7 @@
 }
 
 .highlight_info p {
-  font-family: Helvetic;
+  font-family: var(--secondary-font);
   font-weight: 500;
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -262,10 +262,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(2px) brightness(.5);
+  filter: blur(2px) brightness(0.5);
   transform: scale(1) rotate(0deg);
   transition: transform 0.3s cubic-bezier(0.38, 0.005, 0.215, 1);
-
 }
 
 .about_overlay:hover > img {
@@ -288,7 +287,7 @@
   height: 100%;
   object-fit: cover;
   object-position: 50% 30%;
-  filter: brightness(.5);
+  filter: brightness(0.5);
 }
 .about_text_content {
   position: absolute;
@@ -297,7 +296,7 @@
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  padding: 3.5rem 16rem; 
+  padding: 3.5rem 16rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

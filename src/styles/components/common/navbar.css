@@ -29,7 +29,7 @@
   font-size: 1.2rem;
   display: flex;
   flex-direction: column;
-  font-family: BebasNeue;
+  font-family: var(--tag-font);
   height: 1.3rem;
   overflow: hidden;
   position: relative;

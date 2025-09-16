@@ -11,7 +11,7 @@
   border: none;
   outline: none;
   text-transform: uppercase;
-  font-family: BebasNeue;
+  font-family: var(--tag-font);
   font-weight: 400;
   background-color: #fff;
 }
@@ -27,7 +27,7 @@
   line-height: 1;
 }
 .common_btn.black {
-  background-color: #1D1D1D;
+  background-color: #1d1d1d;
   color: #fff;
 }
 .common_btn.white {
