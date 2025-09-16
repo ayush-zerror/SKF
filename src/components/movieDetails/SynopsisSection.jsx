@@ -10,7 +10,7 @@ const SynopsisSection = () => {
     <section id="synopsis_section">
       <h5 className="tag">Synopsis</h5>
       <h2 ref={titleRef} className="heading">
-        Discover the s<span className="letter-u">t</span>ory, <br />  the pe
+        Discover the <span className="letter-u">story,</span> <br />  the pe
         <span className="letter-l">o</span>ple behind it.
       </h2>
       <div className="synopsis_info">

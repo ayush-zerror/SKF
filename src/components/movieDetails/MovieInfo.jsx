@@ -24,7 +24,7 @@ const MovieInfo = ({detailsRef}) => {
         <p>Duration</p>
         <h4>2h 15m</h4>
       </div>
-      <div>
+      <div className="netflix">
         <p>Watch now</p>
         <Image
           width={1000}
