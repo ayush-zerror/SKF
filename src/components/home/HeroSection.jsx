@@ -113,7 +113,7 @@ const HeroSection = ({ movies }) => {
         upcomingTitle,
         {
           y: `-${distanceToTop}px`,
-          paddingTop: "3.5rem",
+          paddingTop: "9rem",
           duration: 2,
           ease: "power2.out", // slightly gentler easing
           force3D: true,
