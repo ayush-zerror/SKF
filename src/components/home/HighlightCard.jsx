@@ -63,7 +63,7 @@ const HighlightCard = ({ data, isLast }) => {
             {data?.description}
           </p>
         </div>
-        <Button title="Read More" color={"white"} />
+        <Button title="Read More" color={"black"} />
       </div>
       <div className="highlight_img" >
         <Image ref={imageRef} width={1000} height={1000} src={data?.image} alt={data?.title} />

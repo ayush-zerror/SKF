@@ -51,21 +51,6 @@ const HeroSection = ({ movies }) => {
 
     const moveX1 = card2Rect.left - card1Rect.left;
     const moveX3 = card2Rect.right - card3Rect.right;
-
-    const carouselContent = document.getElementById("movie_carousel_content");
-    const upcomingTitle = document.getElementById("Upcoming_title");
-    const parentSection = document.getElementById("movie_carousel_section");
-    const upcomingPoster = document.getElementById("upcoming_poster");
-
-    // dynamic distances
-    const distanceToTop =
-      upcomingTitle.getBoundingClientRect().top -
-      parentSection.getBoundingClientRect().top;
-
-    const posterDistanceToTop =
-      upcomingPoster.getBoundingClientRect().top -
-      parentSection.getBoundingClientRect().top;
-
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: heroRef.current,
@@ -95,56 +80,6 @@ const HeroSection = ({ movies }) => {
       .to(card2, { zIndex: 2, force3D: true, duration: 1.2 }, "<")
       .to(card3, { x: moveX3, zIndex: 3, force3D: true, duration: 1.2 }, "<")
 
-      // Move carousel content up smoothly
-      .to(
-        carouselContent,
-        {
-          y: "-100%",
-          opacity: 0,
-          duration: 1.4,
-          ease: "power3.inOut",
-          force3D: true,
-        },
-        "upcoming"
-      )
-
-      // Move Upcoming_title to top dynamically
-      .to(
-        upcomingTitle,
-        {
-          y: `-${distanceToTop}px`,
-          paddingTop: "9rem",
-          duration: 2,
-          ease: "power2.out", // slightly gentler easing
-          force3D: true,
-        },
-        "upcoming+=0.5"
-      )
-
-      // Scale h2 simultaneously
-      .to(
-        upcomingTitle.querySelector("h2"),
-        {
-          fontSize: "5rem",
-          duration: 2,
-          ease: "power2.out",
-          force3D: true,
-        },
-        "upcoming+=0.5"
-      )
-
-      // Move upcoming poster dynamically
-      .to(
-        upcomingPoster,
-        {
-          y: `-${posterDistanceToTop}px`,
-          duration: 2,
-          ease: "power2.out",
-          force3D: true,
-        },
-        "upcoming+=0.5"
-      );
-
     return () => {
       tl.scrollTrigger?.kill();
       tl.kill();
@@ -171,16 +106,6 @@ const HeroSection = ({ movies }) => {
               />
             ))}
           </div>
-        </div>
-        <div id="Upcoming_title">
-          <h2 className="heading">Upcoming Movie</h2>
-          <p className="description">
-            Soon hitting the screens: the latest blockbusters and fan-favorite
-            stories that are set to wow audiences everywhere.
-          </p>
-        </div>
-        <div id="upcoming_poster">
-          <Image width={1000} height={1000} src="/images/home/upcoming.png" />
         </div>
       </section>
     </div>
