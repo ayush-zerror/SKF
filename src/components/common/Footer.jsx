@@ -13,8 +13,8 @@ const Footer = () => {
         <div id="footer_bottom_left">
           <Link href="/">Careers</Link>
           <Link href="/">Disclaimer</Link>
-          <Link href="/">Disclaimer</Link>
-          <Link href="/">Disclaimer</Link>
+          <Link href="/">Privacy Policy</Link>
+          <Link href="/">Terms and Condition</Link>
         </div>
         <div id="footer_bottom_right">
           <Link href="/">salmankhanflims@gmail.com</Link>
