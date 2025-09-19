@@ -216,6 +216,9 @@
   object-fit: cover;
 }
 
+.btn_container{
+    display: none;
+  }
 /* about section  */
 
 #about_section {
@@ -334,6 +337,12 @@
     gap: 1.5rem;
     padding-bottom: 1.5rem;
   }
+  .highlight_card .common_btn {
+    display: none;
+  }
+  .btn_container{
+    display: flex;
+  }
   .highlight_img {
     width: 100%;
     height: auto;
@@ -341,18 +350,19 @@
   .highlight_info {
     width: 100%;
   }
-  #about_section{
-    height: 150vh ;
+  #about_section {
+    height: 120vh;
   }
-.about_overlay{
-  width: calc(100% - 2rem);
-  height: 100vh;
-}
-  .about_text_content{
-    padding: 1rem;
+  .about_overlay {
+    width: calc(100% - 2rem);
     height: auto;
   }
-
+  .about_text_content {
+    padding: 1rem;
+  }
+  .about_overlay .description {
+    width: 90%;
+}
 }
 
 /* Small (Phones to Tablets) */

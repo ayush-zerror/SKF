@@ -1,7 +1,8 @@
-import React, { useRef} from "react";
+import React, { useRef } from "react";
 import HighlightCard from "./HighlightCard";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 import Cursor from "../common/Cursor";
+import Button from "../common/Button";
 
 // highlightData.js
 const highlightData = [
@@ -50,6 +51,9 @@ const Highlights = () => {
             isLast={index === highlightData.length - 1}
           />
         ))}
+      </div>
+      <div className="btn_container">
+        <Button color={"black"} title={"read more"} />
       </div>
       <Cursor sectionRef={sectionRef} text="View more" />
     </section>

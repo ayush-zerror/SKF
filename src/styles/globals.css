@@ -67,8 +67,7 @@ body {
   color: #585858;
 }
 
-
-#cursor{
+#cursor {
   width: 4.5rem;
   height: 4.5rem;
   background-color: #1d1d1d;
@@ -78,22 +77,28 @@ body {
   align-items: center;
   justify-content: center;
   position: fixed;
-  transform: translate(-50%,-50%) scale(0);
+  transform: translate(-50%, -50%) scale(0);
   opacity: 0;
   z-index: 99;
-   font-family: var(--tag-font);
-  font-size: .9rem;
+  font-family: var(--tag-font);
+  font-size: 0.9rem;
   font-weight: 400;
   pointer-events: none;
 }
 
-
-
 /* Extra small (Phones) */
 @media (max-width: 480px) {
   .heading {
-  font-size: 3rem;
-}
+    font-size: 2.8rem;
+  }
+  .description {
+    line-height: 1.4;
+    font-size: .9rem;
+    font-weight: 100 !important;
+  }
+  #cursor{
+    display: none;
+  }
 }
 
 /* Small (Phones to Tablets) */
@@ -110,4 +115,3 @@ body {
 @media (min-width: 1024px) and (max-width: 1280px) {
   /* styles for small laptops/desktops */
 }
-

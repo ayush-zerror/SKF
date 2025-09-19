@@ -13,9 +13,9 @@ const TrailerSwiper = () => {
   const sectionRef = useRef(null);
 
   const trailers = [
-    "/images/movieDetails/trailer1.png",
-    "/images/movieDetails/trailer2.png",
-    "/images/movieDetails/trailer3.png",
+    "/images/moviedetails/trailer1.png",
+    "/images/moviedetails/trailer2.png",
+    "/images/moviedetails/trailer3.png",
   ];
 
   return (
