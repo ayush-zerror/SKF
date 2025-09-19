@@ -6,7 +6,7 @@ const MovieInfo = ({detailsRef}) => {
     <div
       ref={detailsRef}
       className="movie_details_info"
-      style={{ transform: "translateY(100%)", opacity: 0 }}
+      style={{ transform: "translateY(60%)", opacity: 0 }}
     >
       <div>
         <p>Directed By</p>

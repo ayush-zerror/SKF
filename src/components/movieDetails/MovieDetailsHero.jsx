@@ -6,41 +6,55 @@ import MovieInfo from "./MovieInfo";
 import MovieTrailerVideo from "./MovieTrailerVideo";
 
 const MovieDetailsHero = () => {
+  const sectionRef = useRef(null);
   const bannerRef = useRef(null);
   const detailsRef = useRef(null);
   const [showVideo, setShowVideo] = useState(false);
 
-
   useGSAP(() => {
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+    const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
-    // Banner drops in
-    tl.to(bannerRef.current, {
-      y: "0%",
-      opacity: 1,
-      duration: 1.5,
-      ease: "power3.out",
-      overwrite: "auto",
-    })
-      // Details rise up
+    // section reveal
+    tl.to(
+      sectionRef.current,
+      {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut", // extra smooth
+      },
+      "start"
+    )
+
+      // banner slide
+      .to(
+        bannerRef.current,
+        { y: "0%", duration: .8, ease: "power2.inOut" },
+        "start+=0.1"
+      )
+
+      // image push
+      .to(
+        bannerRef.current.querySelector("img"),
+        { objectPosition: "50% 50%", duration: 1, ease: "power4.out" },
+        "start+=0.2"
+      )
+
+      // details rise
       .to(
         detailsRef.current,
-        {
-          y: "0%",
-          opacity: 1,
-          duration: 1.5,
-          ease: "power3.out",
-          overwrite: "auto",
-        },
-        "-=1.0" // overlap
+        { y: "0%", opacity: 1, duration: 1, ease: "power2.inOut" },
+        "start+=0.3"
       );
   }, []);
 
   return (
     <div id="movie_details_hero">
-      <MovieBanner bannerRef={bannerRef} setShowVideo={setShowVideo}/>
-      <MovieInfo detailsRef={detailsRef} />
-      <MovieTrailerVideo showVideo={showVideo} setShowVideo={setShowVideo}/>
+      <div id="movie_details_wrapper" ref={sectionRef}>
+        <MovieBanner bannerRef={bannerRef} setShowVideo={setShowVideo} />
+        <MovieInfo detailsRef={detailsRef} />
+        <MovieTrailerVideo showVideo={showVideo} setShowVideo={setShowVideo} />
+      </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const MovieBanner = ({bannerRef,setShowVideo}) => {
     <div
       ref={bannerRef}
       className="movie_banner"
-      style={{ transform: "translateY(-100%)", opacity: 0 }}
+      style={{ transform: "translateY(25%)"}}
     >
       <Image
         width={1000}
