@@ -20,7 +20,7 @@
 }
 
 :root {
-  --primary-font: fontello;
+  --primary-font: BebasNeue;
   --secondary-font: Helvetic;
   --tag-font: BebasNeue;
 }
@@ -54,7 +54,7 @@ body {
 }
 .letter-u {
   font-family: var(--primary-font);
-  font-style: italic;
+  /* font-style: italic; */
   font-weight: 400;
   line-height: 1.1;
 }
@@ -86,3 +86,28 @@ body {
   font-weight: 400;
   pointer-events: none;
 }
+
+
+
+/* Extra small (Phones) */
+@media (max-width: 480px) {
+  .heading {
+  font-size: 3rem;
+}
+}
+
+/* Small (Phones to Tablets) */
+@media (min-width: 480px) and (max-width: 767px) {
+  /* styles for bigger phones & small tablets */
+}
+
+/* Medium (Tablets) */
+@media (min-width: 764px) and (max-width: 1024px) {
+  /* styles for tablets */
+}
+
+/* Large (Laptops) */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  /* styles for small laptops/desktops */
+}
+

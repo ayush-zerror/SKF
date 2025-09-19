@@ -5,8 +5,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: .9rem 3.5rem;
-  z-index: 99;
+  padding: 0.9rem 3.5rem;
+  z-index: 9999;
   mix-blend-mode: difference;
 }
 #logo {
@@ -39,3 +39,124 @@
   display: inline-block;
 }
 
+#navigation {
+  width: 100%;
+  height: calc(100dvh - 100px);
+  position: fixed;
+  top: 100px;
+  left: 0;
+  background-color: #fff;
+  color: #1d1d1d;
+  flex-direction: column;
+  padding: 20px;
+  padding-top: 120px;
+  z-index: 9999;
+  display: none;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.social-link {
+  display: flex;
+  gap: 30px;
+  font-size: 21px;
+  width: 100%;
+  justify-content: flex-start;
+}
+.social-link a {
+  text-decoration: none;
+  color:#1d1d1d;
+}
+
+#menu-btn {
+  position: relative;
+  z-index: 10;
+  width: 25px;
+  height: 15px;
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: space-between;
+  display: none;
+  cursor: pointer;
+}
+.line1m {
+  top: 0%;
+}
+.line2m {
+  top: calc(100% - 1.5px);
+}
+.line3m {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: center;
+}
+.linem {
+  position: absolute;
+  display: block;
+  width: 25px;
+  height: 1.5px;
+  background-color: #1d1d1d !important;
+  transform-origin: center;
+}
+
+.menu-links a {
+  text-decoration: none;
+  color: #1d1d1d !important;
+  font-family: heading2;
+  text-align: right;
+  font-size: 27px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.menu-links a span {
+  font-family: paraLight;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Extra small (Phones) */
+@media (max-width: 480px) {
+  #navbar {
+    mix-blend-mode: normal;
+    background-color: #fff;
+    padding: 0.9rem 1rem;
+  }
+  #logo {
+    filter: invert(0);
+  }
+  .nav_links {
+    display: none;
+  }
+  #navigation {
+    display: flex;
+    justify-content: space-between;
+    height: calc(100dvh);
+    top: 100%;
+  }
+  #menu-btn {
+    display: flex;
+  }
+}
+
+/* Small (Phones to Tablets) */
+@media (min-width: 480px) and (max-width: 767px) {
+  /* styles for bigger phones & small tablets */
+}
+
+/* Medium (Tablets) */
+@media (min-width: 767px) and (max-width: 1024px) {
+  /* styles for tablets */
+}
+
+/* Large (Laptops) */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  /* styles for small laptops/desktops */
+}

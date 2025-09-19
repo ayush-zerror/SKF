@@ -5,7 +5,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
 import { useGSAP } from "@gsap/react";
-import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,6 +17,8 @@ const HeroSection = ({ movies }) => {
 
   // Cards fade in from right initially
   useEffect(() => {
+    if (window.innerWidth <= 480) return; // 🚫 skip animations on mobile
+
     cardsRef.current.forEach((card, index) => {
       if (!card) return;
       gsap.fromTo(
@@ -38,52 +39,51 @@ const HeroSection = ({ movies }) => {
       );
     });
   }, []);
+
   useGSAP(() => {
-    if (!heroRef.current || cardsRef.current.length < 3) return;
+    ScrollTrigger.matchMedia({
+      "(min-width: 481px)": () => {
+        if (!heroRef.current || cardsRef.current.length < 3) return;
 
-    const card1 = cardsRef.current[0];
-    const card2 = cardsRef.current[1];
-    const card3 = cardsRef.current[2];
+        const card1 = cardsRef.current[0];
+        const card2 = cardsRef.current[1];
+        const card3 = cardsRef.current[2];
 
-    const card2Rect = card2.getBoundingClientRect();
-    const card1Rect = card1.getBoundingClientRect();
-    const card3Rect = card3.getBoundingClientRect();
+        const card2Rect = card2.getBoundingClientRect();
+        const card1Rect = card1.getBoundingClientRect();
+        const card3Rect = card3.getBoundingClientRect();
 
-    const moveX1 = card2Rect.left - card1Rect.left;
-    const moveX3 = card2Rect.right - card3Rect.right;
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: "bottom bottom",
-        end: "bottom top",
-        pin: true,
-        scrub: 0.8, // smoother scroll
+        const moveX1 = card2Rect.left - card1Rect.left;
+        const moveX3 = card2Rect.right - card3Rect.right;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: heroRef.current,
+            start: "bottom bottom",
+            end: "bottom top",
+            pin: true,
+            scrub: 0.8,
+          },
+        });
+
+        tl.to(
+          [
+            card1.querySelectorAll("span"),
+            card2.querySelectorAll("span"),
+            card3.querySelectorAll("span"),
+          ],
+          { opacity: 0, duration: 0.4, stagger: 0.1, force3D: true },
+          "cards"
+        )
+          .to(card1, { x: moveX1, zIndex: 1, force3D: true, duration: 1.2 })
+          .to(card2, { zIndex: 2, force3D: true, duration: 1.2 }, "<")
+          .to(
+            card3,
+            { x: moveX3, zIndex: 3, force3D: true, duration: 1.2 },
+            "<"
+          );
       },
     });
-
-    // Cards fade & slide
-    tl.to(
-      [
-        card1.querySelectorAll("span"),
-        card2.querySelectorAll("span"),
-        card3.querySelectorAll("span"),
-      ],
-      {
-        opacity: 0,
-        duration: 0.4,
-        stagger: 0.1,
-        force3D: true,
-      },
-      "cards"
-    )
-      .to(card1, { x: moveX1, zIndex: 1, force3D: true, duration: 1.2 })
-      .to(card2, { zIndex: 2, force3D: true, duration: 1.2 }, "<")
-      .to(card3, { x: moveX3, zIndex: 3, force3D: true, duration: 1.2 }, "<")
-
-    return () => {
-      tl.scrollTrigger?.kill();
-      tl.kill();
-    };
   }, []);
 
   return (

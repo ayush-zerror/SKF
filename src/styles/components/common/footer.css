@@ -7,6 +7,7 @@ footer {
   flex-direction: column;
   justify-content: space-between;
   height: 45vh;
+  overflow: hidden;
 }
 
 #footer_top {
@@ -57,3 +58,43 @@ footer {
   font-weight: 400;
   font-size: 0.8rem;
 }
+
+
+
+/* Extra small (Phones) */
+@media (max-width: 480px) {
+  footer{
+    padding:3.5rem 1rem;
+    height: auto;
+    gap: 5rem;
+  }
+  #footer_top h2 {
+    font-size: 3rem;
+  }
+  #footer_top{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  #footer_bottom{
+     flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
+
+/* Small (Phones to Tablets) */
+@media (min-width: 480px) and (max-width: 767px) {
+  /* styles for bigger phones & small tablets */
+}
+
+/* Medium (Tablets) */
+@media (min-width: 764px) and (max-width: 1024px) {
+  /* styles for tablets */
+}
+
+/* Large (Laptops) */
+@media (min-width: 1024px) and (max-width: 1280px) {
+  /* styles for small laptops/desktops */
+}
+

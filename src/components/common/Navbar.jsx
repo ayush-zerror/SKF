@@ -1,15 +1,17 @@
-"use client";
 import Link from "next/link";
 import React, { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import { navLinks } from "@/helper/menuData";
 import { usePathname } from "next/navigation";
+import { useGSAP } from "@gsap/react";
 
 const Navbar = () => {
   const navRef = useRef(null);
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const menuTL = useRef();
 
   const splitLetters = (text) =>
     text.split("").map((letter, i) => <span key={i}>{letter}</span>);
@@ -61,6 +63,79 @@ const Navbar = () => {
         transform: "none",
       };
 
+  useGSAP(() => {
+    menuTL.current = gsap
+      .timeline({ paused: true })
+      .to(
+        ".line1m",
+        {
+          top: "50%",
+          transform: "translateY(-50%)",
+          duration: 0.2,
+        },
+        "a"
+      )
+      .to(
+        ".line2m",
+        {
+          top: "50%",
+          transform: "translateY(-50%)",
+          duration: 0.2,
+        },
+        "a"
+      )
+      .to(
+        ".line1m",
+        {
+          rotate: 45,
+          duration: 0.2,
+        },
+        "b"
+      )
+      .to(
+        ".line2m",
+        {
+          rotate: -45,
+          duration: 0.2,
+        },
+        "b"
+      )
+      .to(
+        ".line3m",
+        {
+          scaleX: 0,
+          duration: 0.2,
+          delay: -0.1,
+        },
+        "b"
+      )
+      .to(
+        "#navigation",
+        {
+          clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          duration: 0.3,
+          ease: "power2.out",
+        },
+        "a"
+      );
+  }, []);
+
+  // ✅ This watches state and runs animation properly
+  useEffect(() => {
+    if (menuTL.current) {
+      if (menu) {
+        menuTL.current.play();
+      } else {
+        menuTL.current.reverse();
+      }
+    }
+  }, [menu]);
+
+  // ✅ Toggle function remains clean
+  const toggleMenu = () => {
+    setMenu((prev) => !prev);
+  };
+
   return (
     <nav ref={navRef} id="navbar" style={navStyle}>
       <Link id="logo" href="/">
@@ -84,6 +159,40 @@ const Navbar = () => {
             <span className="title2">{splitLetters(label)}</span>
           </Link>
         ))}
+      </div>
+
+      <div id="menu-btn" onClick={toggleMenu}>
+        <span className="line1m linem"></span>
+        <span className="line3m linem"></span>
+        <span className="line2m linem"></span>
+      </div>
+      <div id="navigation">
+        <div className="menu-links">
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={label}
+              href={href}
+              className={`${label}`}
+              onClick={() => setMenu(false)}
+            >
+              {label}
+            </Link>
+          ))}
+        </div>
+        <div className="social-link">
+          <a target="_blank" href="https://www.instagram.com/wealthfusionuk/">
+            <i className="ri-instagram-fill"></i>
+          </a>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/company/wealthfusion/"
+          >
+            <i className="ri-linkedin-fill"></i>
+          </a>
+          <a target="_blank" href="https://www.facebook.com/WealthFusionUk">
+            <i className="ri-facebook-box-fill"></i>
+          </a>
+        </div>
       </div>
     </nav>
   );

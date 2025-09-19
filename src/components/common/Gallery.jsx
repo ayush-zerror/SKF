@@ -11,49 +11,50 @@ const Gallery = () => {
   const galleryRef = useRef(null);
 
   useGSAP(() => {
-    const galleryContainer = galleryRef.current;
-    const cols = [...galleryContainer.querySelectorAll(".col")];
+    ScrollTrigger.matchMedia({
+      "(min-width: 481px)": () => {
+        const galleryContainer = galleryRef.current;
+        const cols = [...galleryContainer.querySelectorAll(".col")];
 
-    const setupAnimations = () => {
-      const heights = cols.map((col) => col.offsetHeight);
-      const maxHeight = Math.max(...heights);
+        const setupAnimations = () => {
+          const heights = cols.map((col) => col.offsetHeight);
+          const maxHeight = Math.max(...heights);
 
-      cols.forEach((col) => {
-        const diff = maxHeight - col.offsetHeight;
-        console.log("col diff:", diff);
+          cols.forEach((col) => {
+            const diff = maxHeight - col.offsetHeight;
 
-        gsap.to(col, {
-          y: diff,
-          ease: "none",
-          scrollTrigger: {
-            trigger: galleryContainer,
-            start: "top top",
-            end: "bottom bottom",
-            scrub: true,
-            // markers: true,
-          },
+            gsap.to(col, {
+              y: diff,
+              ease: "none",
+              scrollTrigger: {
+                trigger: galleryContainer,
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true,
+              },
+            });
+          });
+
+          ScrollTrigger.refresh();
+        };
+
+        const images = galleryContainer.querySelectorAll("img");
+        let loaded = 0;
+
+        images.forEach((img) => {
+          if (img.complete) {
+            loaded++;
+          } else {
+            img.addEventListener("load", () => {
+              loaded++;
+              if (loaded === images.length) setupAnimations();
+            });
+          }
         });
-      });
 
-      ScrollTrigger.refresh(); // ✅ recalc after images are loaded
-    };
-
-    // ✅ Wait until all images load
-    const images = galleryContainer.querySelectorAll("img");
-    let loaded = 0;
-
-    images.forEach((img) => {
-      if (img.complete) {
-        loaded++;
-      } else {
-        img.addEventListener("load", () => {
-          loaded++;
-          if (loaded === images.length) setupAnimations();
-        });
-      }
+        if (loaded === images.length) setupAnimations();
+      },
     });
-
-    if (loaded === images.length) setupAnimations();
   }, []);
 
   // ✅ Array of images
@@ -75,11 +76,7 @@ const Gallery = () => {
   ];
 
   // ✅ Divide images into columns (5, 4, 5)
-  const columns = [
-    images.slice(0, 5),
-    images.slice(5, 9),
-    images.slice(9, 14),
-  ];
+  const columns = [images.slice(0, 5), images.slice(5, 9), images.slice(9, 14)];
 
   return (
     <section id="gallery" className="gallery">
@@ -102,7 +99,7 @@ const Gallery = () => {
           </div>
         ))}
       </div>
-       <div className="btn_container">
+      <div className="btn_container">
         <Button color={"black"} title={"show more"} />
       </div>
     </section>
