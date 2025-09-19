@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
+import Button from "./Button";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -100,6 +101,9 @@ const Gallery = () => {
             ))}
           </div>
         ))}
+      </div>
+       <div className="btn_container">
+        <Button color={"black"} title={"show more"} />
       </div>
     </section>
   );

@@ -36,7 +36,7 @@ const MoviesListing = ({ data }) => {
           <MovieCard key={index} id={index + 1} data={movie} />
         ))}
       </div>
-      <div className="movie_listing_btn">
+      <div className="btn_container">
         <Button color={"black"} title={"show more"} />
       </div>
     </section>
