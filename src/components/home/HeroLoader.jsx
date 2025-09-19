@@ -21,7 +21,7 @@ const HeroLoader = () => {
 
       // Set landing_video width same as K_letter
       if (kLetter && landingVideoRef.current) {
-        const kWidth = kLetter.offsetWidth - 4.5;
+        const kWidth = kLetter.offsetWidth - 2.5;
         landingVideoRef.current.style.width = `${kWidth}px`;
         landingVideoRef.current.style.clipPath =
           "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"; // initially hidden
