@@ -66,3 +66,23 @@ body {
   margin-top: 1.2rem;
   color: #585858;
 }
+
+
+#cursor{
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #1d1d1d;
+  color: #fffef1;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  transform: translate(-50%,-50%) scale(0);
+  opacity: 0;
+  z-index: 99;
+   font-family: var(--tag-font);
+  font-size: .9rem;
+  font-weight: 400;
+  pointer-events: none;
+}

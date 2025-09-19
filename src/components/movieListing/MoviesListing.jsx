@@ -2,11 +2,13 @@ import React, { useRef, useState } from "react";
 import MovieCard from "./MovieCard";
 import Button from "../common/Button";
 import { useSplitTextMaskAnimation } from "@/utils/useSplitTextMaskAnimation";
+import Cursor from "../common/Cursor";
 
 const MoviesListing = ({ data }) => {
   const filters = ["all", "released", "upcoming movies"];
   const [filter, setFilter] = useState("released");
   const titleRef = useRef(null);
+  const sectionRef = useRef(null);
   useSplitTextMaskAnimation([titleRef]);
 
   return (
@@ -31,7 +33,7 @@ const MoviesListing = ({ data }) => {
       </div>
 
       {/* Movie Container */}
-      <div id="movie_container" className="hero">
+      <div id="movie_container" className="hero" ref={sectionRef}>
         {data.map((movie, index) => (
           <MovieCard key={index} id={index + 1} data={movie} />
         ))}
@@ -39,6 +41,7 @@ const MoviesListing = ({ data }) => {
       <div className="btn_container">
         <Button color={"black"} title={"show more"} />
       </div>
+      <Cursor sectionRef={sectionRef} text="View more" />
     </section>
   );
 };

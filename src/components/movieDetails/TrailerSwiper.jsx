@@ -5,10 +5,12 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { EffectCoverflow } from "swiper/modules";
 import Image from "next/image";
+import Cursor from "../common/Cursor";
 
 const TrailerSwiper = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
+  const sectionRef = useRef(null);
 
   const trailers = [
     "/images/movieDetails/trailer1.png",
@@ -18,10 +20,10 @@ const TrailerSwiper = () => {
 
   return (
     <>
-      <div id="trailer_swiper_container">
+      <div id="trailer_swiper_container" ref={sectionRef}>
         <Swiper
           effect={"coverflow"}
-          grabCursor={true}
+          grabCursor={false}
           centeredSlides={true}
           slidesPerView={"auto"}
           coverflowEffect={{
@@ -39,10 +41,16 @@ const TrailerSwiper = () => {
         >
           {trailers.map((src, i) => (
             <SwiperSlide key={i}>
-              <Image width={1000} height={1000} src={src} alt={`trailer-${i}`} />
+              <Image
+                width={1000}
+                height={1000}
+                src={src}
+                alt={`trailer-${i}`}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
+        <Cursor sectionRef={sectionRef} text="Drag" />
       </div>
 
       <div id="trailer_swiper_indicator">
@@ -52,7 +60,12 @@ const TrailerSwiper = () => {
             className={`indicator_card ${activeIndex === i ? "active" : ""}`}
             onClick={() => swiperRef.current?.slideTo(i)}
           >
-            <Image width={1000} height={1000} src={src} alt={`indicator-${i}`} />
+            <Image
+              width={1000}
+              height={1000}
+              src={src}
+              alt={`indicator-${i}`}
+            />
           </div>
         ))}
       </div>

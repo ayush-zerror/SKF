@@ -167,16 +167,22 @@
   width: 100%;
   overflow: hidden;
   margin: 2rem 0;
+  cursor: none;
 }
 
 #trailer_swiper_container .swiper {
   width: 100%;
   height: 100%;
+  cursor: none;
+}
+#trailer_swiper_container .swiper:active ,#trailer_swiper_container .swiper-slide:active{
+  cursor:none;
 }
 
 #trailer_swiper_container .swiper-slide {
   width: 100%;
   height: 100%;
+  cursor: none;
 }
 
 #trailer_swiper_container .swiper-slide img {
