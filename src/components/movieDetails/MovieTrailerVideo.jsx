@@ -14,7 +14,8 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
   }, [showVideo]);
 
   useEffect(() => {
-    if (isVisible && overlayRef.current && containerRef.current) {
+    const navEl = document.querySelector("nav");
+    if (isVisible && overlayRef.current && containerRef.current && navEl) {
       const tl = gsap.timeline();
 
       // Step 1: Fade in overlay
@@ -38,24 +39,39 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
           { autoAlpha: 1, y: "0%", duration: 0.5, ease: "power4.out" }
         )
 
-        // Step 3: Scale to normal
-        .to(containerRef.current, {
-          scale: 1,
-          duration: 0.35,
-          ease: "power3.out",
-          onComplete: () => {
-            // ✅ Play video after animation finishes
-            if (videoRef.current) {
-              videoRef.current.play().catch((err) => {
-                console.log("Autoplay with sound might be blocked:", err);
-              });
-            }
+        .to(
+          navEl,
+          {
+            duration: 0.8,
+            transform: "translateY(-105%)",
+            overwrite: "auto",
+            ease: "power4.out",
           },
-        });
+          "u"
+        )
+        // Step 3: Scale to normal
+        .to(
+          containerRef.current,
+          {
+            scale: 1,
+            duration: 0.35,
+            ease: "power3.out",
+            onComplete: () => {
+              // ✅ Play video after animation finishes
+              if (videoRef.current) {
+                videoRef.current.play().catch((err) => {
+                  console.log("Autoplay with sound might be blocked:", err);
+                });
+              }
+            },
+          },
+          "u"
+        );
     }
   }, [isVisible]);
 
   const handleClose = () => {
+    const nav = document.querySelector("nav");
     // ✅ Stop & reset video first
     if (videoRef.current) {
       videoRef.current.pause();
@@ -70,11 +86,25 @@ const MovieTrailerVideo = ({ showVideo, setShowVideo }) => {
     });
 
     // Animate container + overlay
-    tl.to(containerRef.current, {
-      scale: 0.85, // smoother shrink
-      duration: 0.35,
-      ease: "power3.in",
-    })
+    tl.to(
+      containerRef.current,
+      {
+        scale: 0.85, // smoother shrink
+        duration: 0.35,
+        ease: "power3.in",
+      },
+      "u"
+    )
+      .to(
+        nav,
+        {
+          duration: 0.8,
+          transform: "translateY(0%)",
+          overwrite: "auto",
+          ease: "power4.out",
+        },
+        "u"
+      )
       .to(containerRef.current, {
         autoAlpha: 0,
         y: "-100%",
