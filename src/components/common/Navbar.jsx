@@ -5,11 +5,11 @@ import Image from "next/image";
 import { navLinks } from "@/helper/menuData";
 import { usePathname } from "next/navigation";
 import { useGSAP } from "@gsap/react";
+import NavigationMenu from "./NavigationMenu";
 
 const Navbar = () => {
   const navRef = useRef(null);
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
   const menuTL = useRef();
 
@@ -37,22 +37,6 @@ const Navbar = () => {
 
   // ✅ Determine animated routes
   const isDarkRoute = pathname === "/" || pathname?.startsWith("/movies/");
-
-  // ✅ Scroll handler only for animated routes
-  useEffect(() => {
-    if (!isDarkRoute) return; // no scroll handling for other routes
-
-    const handleScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.85) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isDarkRoute]);
 
   // ✅ Navbar styles
   const navStyle = isDarkRoute
@@ -166,34 +150,7 @@ const Navbar = () => {
         <span className="line3m linem"></span>
         <span className="line2m linem"></span>
       </div>
-      <div id="navigation">
-        <div className="menu-links">
-          {navLinks.map(({ href, label }) => (
-            <Link
-              key={label}
-              href={href}
-              className={`${label}`}
-              onClick={() => setMenu(false)}
-            >
-              {label}
-            </Link>
-          ))}
-        </div>
-        <div className="social-link">
-          <a target="_blank" href="https://www.instagram.com/wealthfusionuk/">
-            <i className="ri-instagram-fill"></i>
-          </a>
-          <a
-            target="_blank"
-            href="https://www.linkedin.com/company/wealthfusion/"
-          >
-            <i className="ri-linkedin-fill"></i>
-          </a>
-          <a target="_blank" href="https://www.facebook.com/WealthFusionUk">
-            <i className="ri-facebook-box-fill"></i>
-          </a>
-        </div>
-      </div>
+     <NavigationMenu setMenu={setMenu} />
     </nav>
   );
 };

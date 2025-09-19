@@ -11,6 +11,7 @@ const Contact = () => {
         alignItems: "center",
         justifyContent: "center",
         fontSize: "2rem",
+        textAlign:"center"
       }}
     >
       🚧 We’re working on this page — coming your way soon!
