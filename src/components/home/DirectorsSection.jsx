@@ -11,17 +11,16 @@ const directors = [
   { id: 3, name: "Mahesh Manjrekar", image: "/images/home/d6.png" },
 ];
 const DirectorsSection = () => {
-
   const titleRef = useRef(null);
   const paraRef = useRef(null);
 
-  useSplitTextMaskAnimation([titleRef,paraRef])
+  useSplitTextMaskAnimation([titleRef, paraRef]);
 
   return (
     <section id="directors_section">
       <h5 className="tag">Directors</h5>
       <h3 ref={titleRef} className="heading">
-        Visionaries <span className="letter-u">Behind</span> the <br /> 
+        Visionaries <span className="letter-u">Behind</span> the <br />
         <span className="letter-u">Camera</span>
       </h3>
       <DirectorsContainer data={directors} />

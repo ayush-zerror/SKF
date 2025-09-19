@@ -231,10 +231,24 @@
     height: 85vh;
   }
   .movie_details_info {
-    flex-direction: column;
-    padding:3.5rem 1rem;
+    padding: 3.5rem 1rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .movie_details_info > div {
+    width: 45%;
+  }
+  .movie_details_info p {
+    font-size: .9rem;
+  }
+  .movie_details_info h4 {
+    font-size: 1.8rem;
+    white-space: nowrap;
+  }
+  .movie_details_info .netflix {
     align-items: flex-start;
   }
+
   #synopsis_section {
     padding: 2rem 1rem;
   }
@@ -250,7 +264,7 @@
   #trailer_swiper_container {
     height: 50vw;
   }
-  #trailer_swiper_indicator{
+  #trailer_swiper_indicator {
     height: 100px;
   }
   .indicator_card {

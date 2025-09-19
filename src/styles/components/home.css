@@ -307,9 +307,8 @@
 @media (max-width: 480px) {
   #play_btn{
     left: calc(100% - 4rem) !important; 
-    top: calc(100% - 4rem) !important;
+    top: calc(100% - 6rem) !important;
     transform: translate(0,0) !important;
-    opacity: 1 !important;
   }
   #hero_section h2 {
     font-size: 3rem;

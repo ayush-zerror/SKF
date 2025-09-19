@@ -164,7 +164,7 @@ const HeroLoader = () => {
           src="/images/home/loader.mp4"
         ></video>
         <span ref={playBtnRef} id="play_btn">
-          {isMuted ? <GoMute /> : <GoUnmute />} 
+          {isMuted ? <GoMute /> : <GoUnmute />}
         </span>
       </div>
     </div>
