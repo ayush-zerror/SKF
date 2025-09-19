@@ -126,7 +126,7 @@
 @media (max-width: 480px) {
   #navbar {
     mix-blend-mode: normal;
-    background-color: #fff;
+    background-color: #fffef1;
     padding: 0.9rem 1rem;
   }
   #logo {

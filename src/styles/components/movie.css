@@ -65,7 +65,6 @@
   color: #1d1d1d;
   width: 100%;
   cursor: none;
-
 }
 
 #movie_container.hero .movie_img {
@@ -175,25 +174,27 @@
   text-transform: uppercase;
 }
 
-
-
 /* movie listing  end */
-
-
-
 
 /* Extra small (Phones) */
 @media (max-width: 480px) {
   #movie_listing {
     padding: 7rem 1rem 3.5rem;
-}
-#movie_container {
+  }
+  #movie_container {
     grid-template-columns: repeat(1, 1fr);
     gap: 2rem;
-}
-#movie_container.hero .movie_img {
+  }
+  #movie_container.hero .movie_img {
     height: 250px;
-}
+  }
+  .filter_movie span {
+    white-space: nowrap;
+  }
+  .filter_movie{
+    font-size: .8rem;
+    gap: 1.5rem;
+  }
 }
 
 /* Small (Phones to Tablets) */
@@ -210,4 +211,3 @@
 @media (min-width: 1024px) and (max-width: 1280px) {
   /* styles for small laptops/desktops */
 }
-
