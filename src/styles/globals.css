@@ -91,6 +91,12 @@ body {
   .heading {
     font-size: 2.8rem;
   }
+  .heading br{
+    display: none;
+  }
+  .line-mask{
+    display: inline-block !important;
+  }
   .description {
     line-height: 1.4;
     font-size: .9rem;

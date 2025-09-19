@@ -216,9 +216,9 @@
   object-fit: cover;
 }
 
-.btn_container{
-    display: none;
-  }
+.btn_container {
+  display: none;
+}
 /* about section  */
 
 #about_section {
@@ -305,6 +305,12 @@
 
 /* Extra small (Phones) */
 @media (max-width: 480px) {
+  #play_btn{
+    left: calc(100% - 4rem) !important; 
+    top: calc(100% - 4rem) !important;
+    transform: translate(0,0) !important;
+    opacity: 1 !important;
+  }
   #hero_section h2 {
     font-size: 3rem;
     height: 2.5rem;
@@ -317,19 +323,30 @@
     height: 2.3rem;
   }
   #movie_carousel_section {
-    display: none;
+    gap: 1.5rem;
+    height: auto;
+    padding: 3.5rem 1rem;
   }
-
+  #movie_carousel {
+    grid-template-columns: repeat(1, 1fr);
+    margin-top: 2rem;
+  }
   #upcoming_section {
     min-height: auto;
-    padding: 3.5rem 1rem;
+    padding: 2rem 1rem;
   }
   #directors_section {
     padding: 3.5rem 1rem;
   }
 
   #highlight_section {
-    padding: 3.5rem 1rem;
+    padding: 2rem 1rem;
+  }
+  #highlight_section h2 {
+    font-size: 2.8rem;
+  }
+  #highlights_container {
+    margin-top: 2rem;
   }
 
   .highlight_card {
@@ -340,7 +357,7 @@
   .highlight_card .common_btn {
     display: none;
   }
-  .btn_container{
+  .btn_container {
     display: flex;
   }
   .highlight_img {
@@ -362,7 +379,7 @@
   }
   .about_overlay .description {
     width: 90%;
-}
+  }
 }
 
 /* Small (Phones to Tablets) */
